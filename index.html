@@ -34,6 +34,12 @@ article {
   width: 70%;
 }
       
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+      
     </style>
   </head>
 <body>
@@ -44,6 +50,7 @@ article {
     <a href="#misc">Misc</a>
   </div>
   
+  <section>
   <aside>
     <img src="/assets/ProfilePic2.JPG" style="width:200px">
     <h2>Alon Fishman</h2>
@@ -52,5 +59,7 @@ article {
     <p>I am a Ph.D. candidate in the <a href="https://en-humanities.tau.ac.il/linguistics"> Linguistics Department</a> at Tel Aviv University.</p>
     <p>I study semantics and pragmatics, using experimental and corpus methods. I am particularly interested in expressions of perception, expressions of similarity, and metaphorical language.</p>
   </article>
+  </section>
+  
 </body>
 </html>
