@@ -6,6 +6,53 @@ function shuffle_array(arr) {
 	return arr;
 };
 
+// makes a (non-shuffled) counterbalanced array of 16 stimuli
+function create_balanced_array(json_object) {
+	let tv_array = [];
+	for (let i = 0; i < 4; i++) {
+		obj = {};
+		obj.data = {};
+		obj.stimulus = '<b>'+json_object[i].directional_comparison+'</b>';
+		obj.data.item = json_object[i].directional_comparison;
+		obj.data.syntax = "directional";
+		obj.data.type = "literal";
+		obj.data.salience = json_object[i].comparison_salience;
+		tv_array.push(obj);
+	}
+	for (let i = 4; i < 8; i++) {
+		obj = {};
+		obj.data = {};
+		obj.stimulus = '<b>'+json_object[i].nondirectional_comparison+'</b>';
+		obj.data.item = json_object[i].nondirectional_comparison;
+		obj.data.syntax = "nondirectional";
+		obj.data.type = "literal";
+		obj.data.salience = json_object[i].comparison_salience;
+		tv_array.push(obj);
+	}
+	for (let i = 8; i < 12; i++) {
+		obj = {};
+		obj.data = {};
+		obj.stimulus = '<b>'+json_object[i].directional_simile+'</b>';
+		obj.data.item = json_object[i].directional_simile;
+		obj.data.syntax = "directional";
+		obj.data.type = "simile";
+		obj.data.salience = json_object[i].simile_salience;
+		tv_array.push(obj);
+	}
+	for (let i = 12; i < 16; i++) {
+		obj = {};
+		obj.data = {};
+		obj.stimulus = '<b>'+json_object[i].nondirectional_simile+'</b>';
+		obj.data.item = json_object[i].nondirectional_simile;
+		obj.data.syntax = "nondirectional";
+		obj.data.type = "simile";
+		obj.data.salience = json_object[i].simile_salience;
+		tv_array.push(obj);
+	}
+	return tv_array;
+};
+
+
 // makes an array that is fully random, no counterbalance between stimuli types
 function create_tv_array(json_object) {
     let tv_array = [];

@@ -1,6 +1,7 @@
 const jsPsych = initJsPsych({
-	on_finish: function () {
-		jsPsych.data.displayData('csv');
+	on_finish: function (data) {
+//		jsPsych.data.displayData('csv');
+		proliferate.submit({"trials": data.values()});
 	},
 	show_progress_bar: true, // doesn't automatically work with nested timelines and timeline variables
 	auto_update_progress_bar: false
@@ -11,7 +12,7 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Thank you for participating in our study. In this study, you will read sentences and write down what you think they mean. The whole study should take no longer than 10 minutes. <br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a cognitive science research study. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p><br>`,
+	stimulus: `<p>Dear participant, thank you for contributing to our study! <br>In this study, you will read sentences and write down what you think they mean. <br>The whole thing should take no longer than 10 minutes. <br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a cognitive science research study. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p><br>`,
 	
     choices: ['Begin'],
 	
@@ -26,9 +27,9 @@ timeline.push(irb);
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `In this study you will see a series of statements written by different people. Your task is to write down what you think the writer of each statement might have meant. For example: <br><br>
-	<b>Apples are better than oranges</b><br><br>
-	In what way?<br><br>The writer of the above statement thinks that apples are better than oranges in some way. In what way do you think that is? You can write down one or more things the writer might have meant. If a statement is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
+	stimulus: `In this study you will see a series of sentences spoken by different people. <br>We are interested in what you think the speaker of each sentence might have meant. <br>For example: <br><br>
+	<b>Apples are better than oranges</b><br><br>In what way?<br><br>
+	In this case, you might write down "Better taste" or "Tastier and healthier". <br>If the sentence is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
 	
 	choices: ['Continue'],
 	
@@ -57,26 +58,50 @@ const trial_1 = {
 
 //timeline.push(trial_1);
 
-let tv_array = shuffle_array(create_tv_array(trial_objects));
+let temp_array = create_balanced_array(shuffle_array(trial_objects));
+let tv_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b) 
+																{return a.data.syntax === b.data.syntax & a.data.type === b.data.type}); //shuffle so that 2 consecutive stimuli don't share both syntax AND type
+
+//let tv_array = shuffle_array(create_tv_array(trial_objects));
 
 //let tv_array = shuffle_array(trial_objects);
 
+//const trials = {
+//	timeline: [{
+//		type:  jsPsychSurveyHtmlForm,
+	
+//		preamble: jsPsych.timelineVariable('stimulus'),
+
+//		html: `<p>In what way?<br><br>1: <input name="first" type="text" required placeholder="Required" size="20" /><br>
+//		2: <input name="second" type="text" size="20" /><br>3: <input name="third" type="text" size="20" />
+//		<br>4: <input name="fourth" type="text" size="20" /></p>`,
+	
+//		data: jsPsych.timelineVariable('data'),
+
+//		on_finish: function(data) {
+//			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
+//			}
+//	}],
+	
+//	timeline_variables: tv_array,
+//};
+
 const trials = {
 	timeline: [{
-		type:  jsPsychSurveyHtmlForm,
-	
+		type:  jsPsychSurveyText,
+		
 		preamble: jsPsych.timelineVariable('stimulus'),
-	
-		html: `<p>In what way?<br><br>1: <input name="first" type="text" required placeholder="Required" size="20" /><br>
-		2: <input name="second" type="text" size="20" /><br>3: <input name="third" type="text" size="20" />
-		<br>4: <input name="fourth" type="text" size="20" /></p>`,
-	
+		
+		questions: [
+			{prompt: "In what way?", name: "properties", rows: 3, required: true}
+			],			
+				
 		data: jsPsych.timelineVariable('data'),
 
 		on_finish: function(data) {
-			jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
 			}
-	}],
+		}],
 	
 	timeline_variables: tv_array,
 };
@@ -86,7 +111,7 @@ timeline.push(trials);
 const q_instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: "<p>That's the end of the study! Thank you for your responses. To help us analyze our results, it would be helpful to know know a little more about you.</p><br>",
+	stimulus: "<p>That's the end of the study! Thank you for your responses. <br>To help us analyze our results, it would be helpful to know know a little more about you.</p><br>",
 	
 	choices: ['Continue'],
 };
