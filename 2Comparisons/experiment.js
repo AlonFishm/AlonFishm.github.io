@@ -12,7 +12,9 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Dear participant, thank you for contributing to our study! <br>In this study, you will read sentences and write down what you think they mean. <br>The whole thing should take no longer than 10 minutes. <br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a cognitive science research study. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p><br>`,
+	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>This is a study about the meanings of sentences. We will ask you to read sentences and write down what you think they mean. <br>The whole thing should take about 10 minutes. 
+	<br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
+	You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p><br>`,
 	
     choices: ['Begin'],
 	
@@ -29,7 +31,7 @@ const instructions = {
 	
 	stimulus: `In this study you will see a series of sentences spoken by different people. <br>We are interested in what you think the speaker of each sentence might have meant. <br>For example: <br><br>
 	<b>Apples are better than oranges</b><br><br>In what way?<br><br>
-	In this case, you might write down "Better taste" or "Tastier and healthier". <br>If the sentence is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
+	Try to think of at least two things to write about each sentence. In this case, you might write down "Better taste", "More crunchy", and "Healthier". <br>If the sentence is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
 	
 	choices: ['Continue'],
 	
@@ -66,52 +68,55 @@ let tv_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b)
 
 //let tv_array = shuffle_array(trial_objects);
 
-//const trials = {
-//	timeline: [{
-//		type:  jsPsychSurveyHtmlForm,
+	//Separate text boxes for responses
+const trials = {
+	timeline: [{
+		type:  jsPsychSurveyHtmlForm,
 	
-//		preamble: jsPsych.timelineVariable('stimulus'),
+		preamble: jsPsych.timelineVariable('stimulus'),
+
+		html: `<p>In what way?<br><br><input name="first" type="text" required placeholder="Required" size="20" /><br>
+		<input name="second" type="text" required placeholder="Required" size="20" /><br><input name="third" type="text" size="20" /></p>`,
 
 //		html: `<p>In what way?<br><br>1: <input name="first" type="text" required placeholder="Required" size="20" /><br>
 //		2: <input name="second" type="text" size="20" /><br>3: <input name="third" type="text" size="20" />
 //		<br>4: <input name="fourth" type="text" size="20" /></p>`,
 	
-//		data: jsPsych.timelineVariable('data'),
-
-//		on_finish: function(data) {
-//			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
-//			}
-//	}],
-	
-//	timeline_variables: tv_array,
-//};
-
-const trials = {
-	timeline: [{
-		type:  jsPsychSurveyText,
-		
-		preamble: jsPsych.timelineVariable('stimulus'),
-		
-		questions: [
-			{prompt: "In what way?", name: "properties", rows: 3, required: true}
-			],			
-				
 		data: jsPsych.timelineVariable('data'),
 
 		on_finish: function(data) {
 			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
 			}
-		}],
-	
+	}],
 	timeline_variables: tv_array,
 };
+
+	//Single big text box for responses
+//const trials = {
+//	timeline: [{
+//		type:  jsPsychSurveyText,
+		
+//		preamble: jsPsych.timelineVariable('stimulus'),
+		
+//		questions: [
+//			{prompt: "In what way?", name: "properties", rows: 3, required: true}
+//			],			
+				
+//		data: jsPsych.timelineVariable('data'),
+
+//		on_finish: function(data) {
+//			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
+//			}
+//		}],	
+//	timeline_variables: tv_array,
+//};
 
 timeline.push(trials);
 
 const q_instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: "<p>That's the end of the study! Thank you for your responses. <br>To help us analyze our results, it would be helpful to know know a little more about you.</p><br>",
+	stimulus: "<p>That's the end of the study! Thank you for your responses. <br>To help us analyze our results, it would be helpful to know a little more about you.</p><br>",
 	
 	choices: ['Continue'],
 };
@@ -157,6 +162,10 @@ const questionnaire = {
 				name: 'comments',
 				textbox_columns: 30,
 				textbox_rows: 3
+			},
+			{
+				type: 'html',
+				prompt: 'The goal of this study was to explore how people interpret comparisons and similes phrased with the words "like" and "alike". <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail.'
 			}
 		]
 	]
