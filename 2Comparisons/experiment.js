@@ -14,7 +14,7 @@ const irb = {
 	
 	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>This is a study about the meanings of sentences. We will ask you to read sentences and write down what you think they mean. <br>The whole thing should take about 10 minutes. 
 	<br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
-	You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p><br>`,
+	You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at any time. Your anonymity is assured; the researchers who have requested your participation will not receive any personally identifiable information about you.</p><br>`,
 	
     choices: ['Begin'],
 	
