@@ -131,8 +131,8 @@ var multiselect_trial = {
   questions: [
     {
       prompt: `<p style="font-weight:bold">Dictionaries and encyclopedias are alike.</p>
-				<p>They are:</p>`, 
-      options: ["books", "contain information", "ordered alphabetically", "large", "made of metal"], 
+				<p>They are (you may select more than one):</p>`, 
+      options: ["books", "informative", "ordered alphabetically", "large", "made of metal"], 
       required: true
     }
   ], 
