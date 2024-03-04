@@ -12,260 +12,143 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>This is a study about the meanings of sentences. We will ask you to read sentences and write down what you think they mean. <br>The whole thing should take about 10 minutes. 
-	<br><br><p style="font-size:80%;">Legal information: By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
-	You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at any time. Your anonymity is assured; the researchers who have requested your participation will not receive any personally identifiable information about you.</p><br>`,
+	stimulus: `<p>Dear participant, thank you for contributing to our research!<br> This is a study about phrasing. We will ask you to choose 
+			between different ways to say the same thing. <br>The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
+			By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and 
+			Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
+			You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at 
+			any time. Your anonymity is assured; the researchers who have requested your participation will not receive any personally identifiable 
+			information about you.</p><br>`,
 	
     choices: ['Begin'],
 	
 	//on_finish: function(data) {
 	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
 	//	}
-	
 };
 
-//timeline.push(irb);
+timeline.push(irb);
 
-var trial_likert = {
-  type: jsPsychSurveyLikert,
-  preamble: `<div style="width:800px"><p>_______________________________________, in that they're books with definitions.</p>
-				<div style="width:350px; float: left; color: purple">
-					<p>Dictionaries and encyclopedias are alike</p>
-				</div>
-				<div style="width:350px; float: right; color: green">
-					<p>Dictionaries are like encyclopedias</p>
-				</div></div>`,
-  questions: [
-    {
-      prompt: `<div style="visibility:hidden"><p>Which sounds better</p></div>`,
-	  required: true,
-      labels: [
-        "Purple is much better", 
-        "Purple is better", 
-        "No preference", 
-        "Green is better", 
-        "Green is much better"
-      ]
-    }
-  ]
-};
-
-timeline.push(trial_likert);
-
-/* display stimulus alone for a few seconds */
-var displayStimulus = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: `<div style="width:520px;"><p>Both dictionaries and encyclopedias are books with definitions listed alphabetically.</p>
-				<div style="width:240px; float: left; color: purple; visibility:hidden">
-					<p>Dictionaries and encyclopedias are alike.</p>
-				</div>
-				<div style="width:240px; float: right; color: green; visibility:hidden">
-					<p>Dictionaries are like encyclopedias.</p>
-				</div>
-				<div style="visibility:hidden">
-					<button class="jspsych-btn">['Purple is better','No preference', 'Green is better']</button>
-				</div>
-			</div>`,
-  choices: [],
-  trial_duration: 1500,
-
-};
-
-timeline.push(displayStimulus);
-
-/* display stimulus with choices and wait for keyboard response */
-var displayStimulusAndChoices = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: `<div style="width:520px;"><p>Both dictionaries and encyclopedias are books with definitions listed alphabetically.</p>
-				<div style="width:240px; float: left; color: purple">
-					<p>Dictionaries and encyclopedias are alike.</p>
-				</div>
-				<div style="width:240px; float: right; color: green">
-					<p>Dictionaries are like encyclopedias.</p>
-				</div>
-			</div>`,
-  choices: ['Purple is better','No preference', 'Green is better'],
-  trial_duration: null,
-
-};
-
-timeline.push(displayStimulusAndChoices);
-
-var cloze_trial = {
-	type: jsPsychCloze,
-	text: `<div style="width:650px"> <p>Dictionaries %%: they're books.</p>
-				<div style="width:300px; float: left; cursor:copy">
-					<div class="tooltip">
-					<p onclick="copy(this)">and encyclopedias are alike</p><span class="tooltiptext">Copy to clipboard</span>
-					</div>
-				</div>
-				<div style="width:300px; float: right; cursor:copy">
-					<div class="tooltip">
-					<p onclick="copy(this)">are like encyclopedias</p><span class="tooltiptext">Copy to clipboard</span>
-					</div>
-				</div>
-			</div>`,
-//	allow_blanks: false,
-	button_text: "Continue",
-	mistake_fn: function() { alert('Please use one of the offered options.'); }
-};
-	
-timeline.push(cloze_trial);
-
-var multichoice_trial = {
-  type: jsPsychSurveyMultiChoice,
-  questions: [
-    {
-      prompt: `<p style="font-weight:bold">Dictionaries and encyclopedias are alike.</p>
-				<p>What does the writer mean?</p>`,
-      options: ["They're books.", "They're books with definitions listed alphabetically.", "They're reptiles."], 
-      required: false
-    }
-  ],
-};
-
-timeline.push(multichoice_trial);
-
-var multiselect_trial = {
-  type: jsPsychSurveyMultiSelect,
-  questions: [
-    {
-      prompt: `<p style="font-weight:bold">Dictionaries and encyclopedias are alike.</p>
-				<p>They are (you may select more than one):</p>`, 
-      options: ["books", "informative", "ordered alphabetically", "large", "made of metal"], 
-      required: true
-    }
-  ], 
-  randomize_question_order: true
-};
-
-timeline.push(multiselect_trial);
-
-/*
-const instructions = {
+const instructionsA = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<div style="width:600px;">
-		<p>Both dictionaries and encyclopedias are books.</p><br><br><br><br><br><br>
-        </div>`,
+	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
+		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Long hair</li></ul></div><br>
+		<div style="visibility:hidden">
+		You will then see a pair of similarity statements, like this:
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
+		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
+		</div>`,
 	
 	choices: ['Continue'],
 	
-	//on_finish: function(data) {
-	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
-	//	}
+/*	on_finish: function(data) {
+		jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+		}*/
 };
 
-//timeline.push(instructions);
+timeline.push(instructionsA);
 
-var trial_1 = {
-    type: jsPsychHtmlSliderResponse,
+const instructionsB = {
+	type: jsPsychHtmlButtonResponse,
 	
-    stimulus: `<div style="width:600px;">
-        <div style="width:240px; float: left; color: purple">
-            <p>Dictionaries and encyclopedias are alike.</p>
-        </div>
-        <div style="width:240px; float: right; color: green">
-            <p>Dictionaries are like encyclopedias.</p>
-        </div>
-		<br><br><br>
-        <p>They are books with alphabetically ordered definitions meant to provide information.</p>
-        <p>Which is better?</p>
-        </div>`,
-    require_movement: true,
-    labels: ['Purple is better', 'No preference', 'Green is better']
-};
-
-//timeline.push(trial_1);
-
-var trial_2 = {
-    type: jsPsychHtmlSliderResponse,
+	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
+		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Long hair</li></ul></div><br>
+		You will then see a pair of similarity statements, like this:
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<div style="visibility:hidden">
+		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
+		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
+		</div>`,
 	
-    stimulus: `<div style="width:600px;">
-		<p>Both dictionaries and encyclopedias are books.</p>
-        <p>Which sounds better?</p>
-	    <div style="width:240px; float: left; color: purple">
-            <p>Dictionaries and encyclopedias are alike.</p>
-        </div>
-        <div style="width:240px; float: right; color: green">
-            <p>Dictionaries are like encyclopedias.</p>
-        </div>
-        </div>`,
-    require_movement: true,
-    labels: ['Purple is better', 'No preference', 'Green is better']
-};
-
-timeline.push(trial_2);
-
-var trial_3 = {
-    type: jsPsychHtmlSliderResponse,
+	choices: ['Continue'],
 	
-    stimulus: `<div style="width:600px;">
-		<p>Both dictionaries and encyclopedias are books with alphabetically ordered definitions meant to provide information.</p>
-        <p>Which sounds better?</p>
-	    <div style="width:240px; float: left; color: purple">
-            <p>Dictionaries and encyclopedias are alike.</p>
-        </div>
-        <div style="width:240px; float: right; color: green">
-            <p>Dictionaries are like encyclopedias.</p>
-        </div>
-        </div>`,
-    require_movement: true,
-    labels: ['Purple is better', 'No preference', 'Green is better']
+/*	on_finish: function(data) {
+		jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+		}*/
 };
 
-timeline.push(trial_3);
+timeline.push(instructionsB);
 
-let temp_array = create_balanced_array(shuffle_array(trial_objects));
+const instructionsC = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
+		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Long hair</li></ul></div><br>
+		You will then see a pair of similarity statements, like this:
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
+		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
+		`,
+	
+	choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+	
+/*	on_finish: function(data) {
+		jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+		}*/
+};
+
+timeline.push(instructionsC);
+
+const b_instructions = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: "<p>If you understand the instructions, you may now begin the study.</p><br>",
+	
+	choices: ['Continue'],
+};
+
+timeline.push(b_instructions);
+
+//let test_array = create_balanced_array(shuffle_array(trial_object1));
+let temp_array = create_balanced_array2(shuffle_array(trial_objects));
 let tv_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b) 
-																{return a.data.syntax === b.data.syntax & a.data.type === b.data.type}); //shuffle so that 2 consecutive stimuli don't share both syntax AND type
+																{return a.data.number === b.data.number & a.data.type === b.data.type}); //shuffle so that 2 consecutive stimuli don't share both type AND number
 
-//let tv_array = shuffle_array(create_tv_array(trial_objects));
-
-//let tv_array = shuffle_array(trial_objects);
-
-	//Separate text boxes for responses
+// display stimulus alone for a few seconds with no button, then add choices and wait for response
 const trials = {
-	timeline: [{
-		type:  jsPsychSurveyHtmlForm,
-	
-		preamble: jsPsych.timelineVariable('stimulus'),
+	timeline: [
+		{
+			type:  jsPsychHtmlButtonResponse,
+			
+			stimulus: jsPsych.timelineVariable('display'),
+			
+			choices: [],
+			
+			trial_duration: 1500,
+		},
+		{
+			type:  jsPsychHtmlButtonResponse,
+			
+			stimulus: jsPsych.timelineVariable('fullDisplay'),
+			
+			choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+			
+			data: jsPsych.timelineVariable('data'),
 
-		html: `<p>In what way?<br><br><input name="first" type="text" required placeholder="Required" size="20" /><br>
-		<input name="second" type="text" required placeholder="Required" size="20" /><br><input name="third" type="text" size="20" /></p>`,
-
-//		html: `<p>In what way?<br><br>1: <input name="first" type="text" required placeholder="Required" size="20" /><br>
-//		2: <input name="second" type="text" size="20" /><br>3: <input name="third" type="text" size="20" />
-//		<br>4: <input name="fourth" type="text" size="20" /></p>`,
-	
-		data: jsPsych.timelineVariable('data'),
-
-		on_finish: function(data) {
-			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
+			on_finish: function(data) {
+				jsPsych.setProgressBar((data.trial_index-3)/2 / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
 			}
-	}],
+		}
+	],
 	timeline_variables: tv_array,
 };
-
-	//Single big text box for responses
-//const trials = {
-//	timeline: [{
-//		type:  jsPsychSurveyText,
-		
-//		preamble: jsPsych.timelineVariable('stimulus'),
-		
-//		questions: [
-//			{prompt: "In what way?", name: "properties", rows: 3, required: true}
-//			],			
-				
-//		data: jsPsych.timelineVariable('data'),
-
-//		on_finish: function(data) {
-//			jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
-//			}
-//		}],	
-//	timeline_variables: tv_array,
-//};
 
 timeline.push(trials);
 
@@ -321,7 +204,7 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: 'The goal of this study was to explore how people interpret comparisons and similes phrased with the words "like" and "alike". <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail.'
+				prompt: "The goal of this study was to explore how the listed properties influence people's preferences for phrasing similarity statements. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
 			}
 		]
 	]
@@ -329,5 +212,175 @@ const questionnaire = {
 
 timeline.push(questionnaire);
 
-*/
+//Task for experiment 2b: binary choice between property lists
+var trial2 = {
+  type: jsPsychSurveyMultiChoice,
+  questions: [
+    {
+      prompt: `<p style="font-weight:bold; text-align:center">Dictionaries and encyclopedias are alike.</p>
+				<p style="text-align:center">In what way?</p>`,
+      options: [`&bull; Books<br>
+				&emsp; &nbsp; &bull; Contain information<br>
+				&emsp; &nbsp; &bull; Ordered alphabetically<br>
+				&emsp; &nbsp; &bull; Long`,
+					`&bull; Books &emsp;`], 
+//      options: [`<p style="white-space:pre">Books<br>&#9; Contain information<br>&#9; Definitions listed alphabetically<br>&#9; Long`, `Books</p>`], 
+      required: false,
+	  horizontal: true
+    }
+  ],
+};
+
+//timeline.push(trial2);
+
+
 jsPsych.run(timeline)
+
+
+/*
+var trial1disp = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: test_array[1].display,
+  choices: [],
+  trial_duration: 2000,
+};
+
+//timeline.push(trial1disp);
+
+var trial1task = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: test_array[1].fullDisplay,
+  choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+};
+
+//timeline.push(trial1task);
+
+var trial_likert = {
+  type: jsPsychSurveyLikert,
+  preamble: `<div>
+				<ul style="text-align:left; width:300px; margin:auto; padding-left:140px">
+					<li>Books</li>
+					<li>Contain information</li>
+					<li>Ordered alphabetically</li>
+					<li>Long</li></ul>
+			</div>
+			<div>
+				<div style="width:250px; float: left">
+					<p>(A) Dictionaries and encyclopedias are alike.</p>
+				</div>
+				<div style="width:250px; float: right">
+					<p>(B) Dictionaries are like encyclopedias.</p>
+				</div>
+			</div>`,
+  questions: [
+    {
+      prompt: ``,
+	  required: true,
+      labels: [
+        "A is much better", 
+        "A is better", 
+        "No preference", 
+        "B is better", 
+        "B is much better"
+      ]
+    }
+  ]
+};
+
+//timeline.push(trial_likert);
+
+var cloze_trial = {
+	type: jsPsychCloze,
+	text: `<div style="width:650px"> <p>Dictionaries %%: they're books.</p>
+				<div style="width:300px; float: left; cursor:copy">
+					<div class="tooltip">
+					<p onclick="copy(this)">and encyclopedias are alike</p><span class="tooltiptext">Copy to clipboard</span>
+					</div>
+				</div>
+				<div style="width:300px; float: right; cursor:copy">
+					<div class="tooltip">
+					<p onclick="copy(this)">are like encyclopedias</p><span class="tooltiptext">Copy to clipboard</span>
+					</div>
+				</div>
+			</div>`,
+//	allow_blanks: false,
+	button_text: "Continue",
+	mistake_fn: function() { alert('Please use one of the offered options.'); }
+};
+	
+//timeline.push(cloze_trial);
+
+
+var multiselect_trial = {
+  type: jsPsychSurveyMultiSelect,
+  questions: [
+    {
+      prompt: `<p style="font-weight:bold">Dictionaries and encyclopedias are alike.</p>
+				<p>They are (you may select more than one):</p>`, 
+      options: ["books", "informative", "ordered alphabetically", "large", "made of metal"], 
+      required: true
+    }
+  ], 
+  randomize_question_order: true
+};
+
+timeline.push(multiselect_trial);
+
+var slider_1 = {
+    type: jsPsychHtmlSliderResponse,
+	
+    stimulus: `<div style="width:600px;">
+        <div style="width:240px; float: left; color: purple">
+            <p>Dictionaries and encyclopedias are alike.</p>
+        </div>
+        <div style="width:240px; float: right; color: green">
+            <p>Dictionaries are like encyclopedias.</p>
+        </div>
+		<br><br><br>
+        <p>They are books with alphabetically ordered definitions meant to provide information.</p>
+        <p>Which is better?</p>
+        </div>`,
+    require_movement: true,
+    labels: ['Purple is better', 'No preference', 'Green is better']
+};
+
+//timeline.push(slider_1);
+
+var slider_2 = {
+    type: jsPsychHtmlSliderResponse,
+	
+    stimulus: `<div style="width:600px;">
+		<p>Both dictionaries and encyclopedias are books.</p>
+        <p>Which sounds better?</p>
+	    <div style="width:240px; float: left; color: purple">
+            <p>Dictionaries and encyclopedias are alike.</p>
+        </div>
+        <div style="width:240px; float: right; color: green">
+            <p>Dictionaries are like encyclopedias.</p>
+        </div>
+        </div>`,
+    require_movement: true,
+    labels: ['Purple is better', 'No preference', 'Green is better']
+};
+
+timeline.push(slider_2);
+
+var slider_3 = {
+    type: jsPsychHtmlSliderResponse,
+	
+    stimulus: `<div style="width:600px;">
+		<p>Both dictionaries and encyclopedias are books with alphabetically ordered definitions meant to provide information.</p>
+        <p>Which sounds better?</p>
+	    <div style="width:240px; float: left; color: purple">
+            <p>Dictionaries and encyclopedias are alike.</p>
+        </div>
+        <div style="width:240px; float: right; color: green">
+            <p>Dictionaries are like encyclopedias.</p>
+        </div>
+        </div>`,
+    require_movement: true,
+    labels: ['Purple is better', 'No preference', 'Green is better']
+};
+
+timeline.push(slider_3);
+*/

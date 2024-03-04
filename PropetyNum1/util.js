@@ -6,6 +6,130 @@ function shuffle_array(arr) {
 	return arr;
 };
 
+// makes a (non-shuffled) array of 16 stimuli, counterbalanced by Type (comparison vs simile) and PropertyNum (1 through 4), randomizing which structures appear on left & right
+function create_balanced_array2(json_object) {
+	let tv_array = [];
+	const side = Math.floor(Math.random() * 2);
+	for (let i = 0; i < 8; i++) {
+		const num = i%4;
+		obj = {};
+		obj.properties = [json_object[i].comparison_property1,json_object[i].comparison_property2,json_object[i].comparison_property3,json_object[i].comparison_property4];
+		obj.list = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">';
+		for (let j = 0; j < num+1; j++) {
+			obj.list += '<li>' + obj.properties[j] + '</li>';
+		}	
+		obj.list += '</ul></div>';
+		if (side < 1) {
+			lefthand = json_object[i].directional_comparison;
+			righthand = json_object[i].nondirectional_comparison;
+		} else {
+			lefthand = json_object[i].nondirectional_comparison;
+			righthand = json_object[i].directional_comparison;
+		};		
+		obj.choices = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					lefthand+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					righthand+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
+					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
+		obj.fullDisplay = obj.list + obj.choices;
+		obj.data = {};
+		obj.data.item = json_object[i].directional_comparison;
+		obj.data.number = num+1;
+		obj.data.type = "literal";
+		obj.data.salience = json_object[i].comparison_salience;
+		tv_array.push(obj);
+	}
+	for (let i = 8; i < 16; i++) {
+		const num = i%4;
+		obj = {};
+		obj.properties = [json_object[i].simile_property1,json_object[i].simile_property2,json_object[i].simile_property3,json_object[i].simile_property4];
+		obj.list = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">';
+		for (let j = 0; j < num+1; j++) {
+			obj.list += '<li>' + obj.properties[j] + '</li>';
+		}	
+		obj.list += '</ul></div>';
+		if (side < 1) {
+			lefthand = json_object[i].directional_simile;
+			righthand = json_object[i].nondirectional_simile;
+		} else {
+			lefthand = json_object[i].nondirectional_simile;
+			righthand = json_object[i].directional_simile;
+		};		
+		obj.choices = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					lefthand+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					righthand+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
+					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
+		obj.fullDisplay = obj.list + obj.choices;
+		obj.data = {};
+		obj.data.item = json_object[i].directional_comparison;
+		obj.data.number = num+1;
+		obj.data.type = "simile";
+		obj.data.salience = json_object[i].simile_salience;
+		tv_array.push(obj);
+	}
+	return tv_array;
+};
+
+// makes a (non-shuffled) array of 16 stimuli, counterbalanced by Type (comparison vs simile) and PropertyNum (1 through 4)
+function create_balanced_array(json_object) {
+	let tv_array = [];
+	for (let i = 0; i < 8; i++) {
+		const num = i%4;
+		obj = {};
+		obj.properties = [json_object[i].comparison_property1,json_object[i].comparison_property2,json_object[i].comparison_property3,json_object[i].comparison_property4];
+		obj.list = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">';
+		for (let j = 0; j < num+1; j++) {
+			obj.list += '<li>' + obj.properties[j] + '</li>';
+		}	
+		obj.list += '</ul></div>';
+		obj.choices = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					json_object[i].directional_comparison+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					json_object[i].nondirectional_comparison+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
+					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
+		obj.fullDisplay = obj.list + obj.choices;
+		obj.data = {};
+		obj.data.item = json_object[i].directional_comparison;
+		obj.data.number = num+1;
+		obj.data.type = "literal";
+		obj.data.salience = json_object[i].comparison_salience;
+		tv_array.push(obj);
+	}
+	for (let i = 8; i < 16; i++) {
+		const num = i%4;
+		obj = {};
+		obj.properties = [json_object[i].simile_property1,json_object[i].simile_property2,json_object[i].simile_property3,json_object[i].simile_property4];
+		obj.list = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">';
+		for (let j = 0; j < num+1; j++) {
+			obj.list += '<li>' + obj.properties[j] + '</li>';
+		}	
+		obj.list += '</ul></div>';
+		obj.choices = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					json_object[i].directional_simile+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					json_object[i].nondirectional_simile+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
+					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
+		obj.fullDisplay = obj.list + obj.choices;
+		obj.data = {};
+		obj.data.item = json_object[i].directional_comparison;
+		obj.data.number = num+1;
+		obj.data.type = "simile";
+		obj.data.salience = json_object[i].simile_salience;
+		tv_array.push(obj);
+	}
+	return tv_array;
+};
+
+
 // copy text on click
 function copy(that){
 var inp =document.createElement('input');
@@ -16,117 +140,89 @@ document.execCommand('copy',false);
 inp.remove();
 };
 
-// makes a (non-shuffled) counterbalanced array of 16 stimuli
-function create_balanced_array(json_object) {
-	let tv_array = [];
-	for (let i = 0; i < 4; i++) {
+/*
+//simple test function
+function simple_ex(json_object) {
+	let obj1 = {};
+		obj1.display = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%"><li>'+
+					json_object[0].comparison_property1+
+					'</li><li>'+json_object[0].comparison_property2+
+					'</li><li>'+json_object[0].comparison_property3+
+					'</li><li>'+json_object[0].comparison_property4+
+					'</li></ul></div><div style="width:600px"><div style="width:250px; float: left; visibility:hidden; margin-left:50px"><p><b>'+
+					json_object[0].directional_comparison+
+					'</b><br>(A)</p></div><div style="width:250px; float: right; visibility:hidden"><p><b>'+
+					json_object[0].nondirectional_comparison+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';
+		obj1.fulldisplay = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%"><li>'+
+					json_object[0].comparison_property1+
+					'</li><li>'+json_object[0].comparison_property2+
+					'</li><li>'+json_object[0].comparison_property3+
+					'</li><li>'+json_object[0].comparison_property4+
+					'</li></ul></div><div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					json_object[0].directional_comparison+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					json_object[0].nondirectional_comparison+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';			
+	return obj1;
+}
+
+//better test function
+function better_ex(json_object) {
+	let ex_array = [];
+	for (let i = 0; i < 2; i++) {
 		obj = {};
-		obj.data = {};
-		obj.stimulus = '<b>'+json_object[i].directional_comparison+'</b>';
-		obj.data.item = json_object[i].directional_comparison;
-		obj.data.syntax = "directional";
-		obj.data.type = "literal";
-		obj.data.salience = json_object[i].comparison_salience;
-		tv_array.push(obj);
+		obj.display = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%"><li>'+
+					json_object[i].comparison_property1+
+					'</li><li>'+json_object[i].comparison_property2+
+					'</li><li>'+json_object[i].comparison_property3+
+					'</li><li>'+json_object[i].comparison_property4+
+					'</li></ul></div><div style="width:600px"><div style="width:250px; float: left; visibility:hidden; margin-left:50px"><p>'+
+					json_object[i].directional_comparison+
+					'<br>(A)</p></div><div style="width:250px; float: right; visibility:hidden"><p>'+
+					json_object[i].nondirectional_comparison+
+					'<br>(B)</p></div><div style="visibility:hidden">buffer</div>';
+		obj.fulldisplay = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%"><li>'+
+					json_object[i].comparison_property1+
+					'</li><li>'+json_object[i].comparison_property2+
+					'</li><li>'+json_object[i].comparison_property3+
+					'</li><li>'+json_object[i].comparison_property4+
+					'</li></ul></div><div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					json_object[i].directional_comparison+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					json_object[i].nondirectional_comparison+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		ex_array.push(obj);
 	}
-	for (let i = 4; i < 8; i++) {
+	return ex_array
+}
+
+//even better test function
+function even_better_ex(json_object) {
+	let ex_array = [];
+	for (let i = 0; i < 2; i++) {
 		obj = {};
-		obj.data = {};
-		obj.stimulus = '<b>'+json_object[i].nondirectional_comparison+'</b>';
-		obj.data.item = json_object[i].nondirectional_comparison;
-		obj.data.syntax = "nondirectional";
-		obj.data.type = "literal";
-		obj.data.salience = json_object[i].comparison_salience;
-		tv_array.push(obj);
+		obj.properties = [json_object[i].comparison_property1,json_object[i].comparison_property2,json_object[i].comparison_property3,json_object[i].comparison_property4];
+		obj.list = '<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">';
+		const num = Math.floor(Math.random()*4);
+		for (let j = 0; j < num+1; j++) {
+			obj.list += '<li>' + obj.properties[j] + '</li>';
+		}	
+		obj.list += '</ul></div>';
+		obj.buffer = '<div style="width:600px"><div style="width:250px; float: left; visibility:hidden; margin-left:50px"><p>'+
+					json_object[i].directional_comparison+
+					'<br>(A)</p></div><div style="width:250px; float: right; visibility:hidden"><p>'+
+					json_object[i].nondirectional_comparison+
+					'<br>(B)</p></div><div style="visibility:hidden">buffer</div>';
+		obj.choices = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+					json_object[i].directional_comparison+
+					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					json_object[i].nondirectional_comparison+
+					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div>';	
+		ex_array.push(obj);
 	}
-	for (let i = 8; i < 12; i++) {
-		obj = {};
-		obj.data = {};
-		obj.stimulus = '<b>'+json_object[i].directional_simile+'</b>';
-		obj.data.item = json_object[i].directional_simile;
-		obj.data.syntax = "directional";
-		obj.data.type = "simile";
-		obj.data.salience = json_object[i].simile_salience;
-		tv_array.push(obj);
-	}
-	for (let i = 12; i < 16; i++) {
-		obj = {};
-		obj.data = {};
-		obj.stimulus = '<b>'+json_object[i].nondirectional_simile+'</b>';
-		obj.data.item = json_object[i].nondirectional_simile;
-		obj.data.syntax = "nondirectional";
-		obj.data.type = "simile";
-		obj.data.salience = json_object[i].simile_salience;
-		tv_array.push(obj);
-	}
-	return tv_array;
+	return ex_array;
 };
+	
 
-
-// makes an array that is fully random, no counterbalance between stimuli types
-function create_tv_array(json_object) {
-    let tv_array = [];
-    for (let i = 0; i < json_object.length; i++) {
-        obj = {};
-		obj.data = {};
-		let rnd = Math.floor(Math.random()*4);
-		if (rnd == 0) {
-			obj.stimulus = '<b>'+json_object[i].directional_comparison+'</b>';
-			obj.data.item = json_object[i].directional_comparison;
-			obj.data.syntax = "directional";
-			obj.data.type = "literal";
-			obj.data.salience = json_object[i].comparison_salience;
-		} else if (rnd == 1) {
-			obj.stimulus = '<b>'+json_object[i].nondirectional_comparison+'</b>';
-			obj.data.item = json_object[i].nondirectional_comparison;
-			obj.data.syntax = "nondirectional";
-			obj.data.type = "literal";
-			obj.data.salience = json_object[i].comparison_salience;
-		} else if (rnd == 2) {
-			obj.stimulus = '<b>'+json_object[i].directional_simile+'</b>';
-			obj.data.item = json_object[i].directional_simile;
-			obj.data.syntax = "directional";
-			obj.data.type = "simile";
-			obj.data.salience = json_object[i].simile_salience;
-		} else {
-			obj.stimulus = '<b>'+json_object[i].nondirectional_simile+'</b>';
-			obj.data.item = json_object[i].nondirectional_simile;
-			obj.data.syntax = "nondirectional";
-			obj.data.type = "simile";
-			obj.data.salience = json_object[i].simile_salience;
-		}
-		tv_array.push(obj);
-	}
-	return tv_array;
-};
-
-// makes an information-rich but kinda unwieldy array
-function Xcreate_tv_array(json_object) {
-    let tv_array = [];
-    for (let i = 0; i < json_object.length; i++) {
-        obj = {};
-		obj.dir_com = {};
-		obj.dir_com.stimulus = '<b>'+json_object[i].directional_comparison+'</b>';
-		obj.dir_com.syntax = "directional";
-		obj.dir_com.type = "literal";
-		obj.dir_com.salience = json_object[i].comparison_salience;
-		obj.non_com = {};
-		obj.non_com.stimulus = '<b>'+json_object[i].nondirectional_comparison+'</b>';
-		obj.non_com.syntax = "nondirectional";
-		obj.non_com.type = "literal";
-		obj.non_com.salience = json_object[i].comparison_salience;
-		obj.dir_sim = {};
-		obj.dir_sim.stimulus = '<b>'+json_object[i].directional_simile+'</b>';
-		obj.dir_sim.syntax = "directional";
-		obj.dir_sim.type = "simile";
-		obj.dir_sim.salience = json_object[i].simile_salience;
-		obj.non_sim = {};
-		obj.non_sim.stimulus = '<b>'+json_object[i].nondirectional_simile+'</b>';
-		obj.non_sim.syntax = "nondirectional";
-		obj.non_sim.type = "simile";
-		obj.non_sim.salience = json_object[i].simile_salience;
-        tv_array.push(obj)
-    }
-    return tv_array;
-};
-
+*/

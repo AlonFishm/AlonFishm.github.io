@@ -29,11 +29,11 @@ timeline.push(irb);
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `In this study you will see a series of sentences spoken by different people. <br>We are interested in what you think the speaker of each sentence might have meant. <br>For example: <br><br>
-	<b>Apples are better than oranges</b><br><br>In what way?<br><br>
-	Try to think of at least two things to write about each sentence. In this case, you might write down "Better taste", "More crunchy", and "Healthier". <br>If the sentence is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
-	
-	choices: ['Continue'],
+		stimulus: `In this study you will see a series of sentences spoken by different people. <br>We are interested in what you think the speaker of each sentence might have meant. <br>For example: <br><br>
+		<b>Apples are better than oranges</b><br><br>In what way?<br><br>
+		Try to think of at least two things to write about each sentence. In this case, you might write down "Better taste", "More crunchy", and "Healthier". <br>If the sentence is very strange or difficult to understand, you can write down "I don't know".<br><br>`,
+		
+		choices: ['Continue'],
 	
 	//on_finish: function(data) {
 	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));

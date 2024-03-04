@@ -1,55 +1,57 @@
-let trial_objects0 = [
-	{
-		"stimulus": '<b>Salesmen and ladders are alike</b>',
-		"form": "nondirectional"
-	},
-	{
-		"stimulus": '<b>Salesmen and bulldozers are alike</b>',
-		"form": "nondirectional"
-	},
-	{
-		"stimulus": "<b>Salesmen and vampires are alike</b>",
-		"form": "nondirectional"
-	},
-	
-];
-
-let trial_objects1 = [
+/*
+let trial_object1 = [
 	{
 		"directional_comparison": "Steamrollers are like bulldozers",
 		"nondirectional_comparison": "Steamrollers and bulldozers are alike",
 		"directional_simile": "Salesmen are like bulldozers",
 		"nondirectional_simile": "Salesmen and bulldozers are alike",
 		"comparison_salience": "balanced",
-		"simile_salience": "balanced"
-	},
+		"simile_salience": "balanced",
+		"comparison_property1": "Heavy equipment",
+		"comparison_property2": "Flatten things",
+		"comparison_property3": "Used for construction",
+		"comparison_property4": "Roll things over",
+		"simile_property1": "Relentless",
+		"simile_property2": "Aggressive",
+		"simile_property3": "Push something",
+		"simile_property4": "Have a goal"
+},
 	{
 		"directional_comparison": "Ghouls are like vampires",
 		"nondirectional_comparison": "Ghouls and vampires are alike",
 		"directional_simile": "Debt collectors are like vampires",
 		"nondirectional_simile": "Debt collectors and vampires are alike",
 		"comparison_salience": "balanced",
-		"simile_salience": "balanced"
+		"simile_salience": "balanced",
+		"comparison_property1": "Scary",
+		"comparison_property2": "Undead",
+		"comparison_property3": "Fictional",
+		"comparison_property4": "Eat people",
+		"simile_property1": "Suck people dry",
+		"simile_property2": "Siphon resources",
+		"simile_property3": "Depend on others",
+		"simile_property4": "Best avoided"
 	},
-];
+];	*/
+
 
 let trial_objects = [
-	{ "directional_comparison": "Lizards are like snakes", "nondirectional_comparison": "Lizards and snakes are alike", "directional_simile": "Highways are like snakes", "nondirectional_simile": "Highways and snakes are alike", "comparison_salience": "balanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Dynamite sticks are like time bombs", "nondirectional_comparison": "Dynamite sticks and time bombs are alike", "directional_simile": "Cigarettes are like time bombs", "nondirectional_simile": "Cigarettes and time bombs are alike", "comparison_salience": "balanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Ghouls are like vampires", "nondirectional_comparison": "Ghouls and vampires are alike", "directional_simile": "Debt collectors are like vampires", "nondirectional_simile": "Debt collectors and vampires are alike", "comparison_salience": "balanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "A dictionary is like an encyclopedia", "nondirectional_comparison": "A dictionary and an encyclopedia are alike", "directional_simile": "A professor is like an encyclopedia", "nondirectional_simile": "A professor and an encyclopedia are alike", "comparison_salience": "balanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "A war is like a battle", "nondirectional_comparison": "A war and a battle are alike", "directional_simile": "An argument is like a battle", "nondirectional_simile": "An argument and a battle are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "A hot spring is like a volcanic geyser", "nondirectional_comparison": "A hot spring and a volcanic geyser are alike", "directional_simile": "A hot temper is like a volcanic geyser", "nondirectional_simile": "A hot temper and a volcanic geyser are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "Nursery rhymes are like lullabies", "nondirectional_comparison": "Nursery rhymes and lullabies are alike", "directional_simile": "Lectures are like lullabies", "nondirectional_simile": "Lectures and lullabies are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "Protective padding is like body armor", "nondirectional_comparison": "Protective padding and body armor are alike", "directional_simile": "Self-confidence is like body armor", "nondirectional_simile": "Self-confidence and body armor are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "Tire irons are like crow bars", "nondirectional_comparison": "Tire irons and crow bars are alike", "directional_simile": "Questions are like crow bars", "nondirectional_simile": "Questions and crow bars are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "Steamrollers are like bulldozers", "nondirectional_comparison": "Steamrollers and bulldozers are alike", "directional_simile": "Salesmen are like bulldozers", "nondirectional_simile": "Salesmen and bulldozers are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Art galleries are like museums", "nondirectional_comparison": "Art galleries and museums are alike", "directional_simile": "Family albums are like museums", "nondirectional_simile": "Family albums and museums are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Tigers are like lions", "nondirectional_comparison": "Tigers and lions are alike", "directional_simile": "Monarchs are like lions", "nondirectional_simile": "Monarchs and lions are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Moths are like butterflies", "nondirectional_comparison": "Moths and butterflies are alike", "directional_simile": "Dancers are like butterflies", "nondirectional_simile": "Dancers and butterflies are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Microwaves are like ovens", "nondirectional_comparison": "Microwaves and ovens are alike", "directional_simile": "Deserts are like ovens", "nondirectional_simile": "Deserts and ovens are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced" },
-	{ "directional_comparison": "Manacles are like shackles", "nondirectional_comparison": "Manacles and shackles are alike", "directional_simile": "Obligations are like shackles", "nondirectional_simile": "Obligations and shackles are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "LED lamps are like spotlights", "nondirectional_comparison": "LED lamps and spotlights are alike", "directional_simile": "Proverbs are like spotlights", "nondirectional_simile": "Proverbs and spotlights are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "House arrest is like imprisonment", "nondirectional_comparison": "House arrest and imprisonment are alike", "directional_simile": "Illiteracy is like imprisonment", "nondirectional_simile": "Illiteracy and imprisonment are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced" },
-	{ "directional_comparison": "Landslides are like earthquakes", "nondirectional_comparison": "Landslides and earthquakes are alike", "directional_simile": "Revolutions are like earthquakes", "nondirectional_simile": "Revolutions and earthquakes are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced" },
+{ "directional_comparison": "A dictionary is like an encyclopedia", "nondirectional_comparison": "A dictionary and an encyclopedia are alike", "directional_simile": "A professor is like an encyclopedia", "nondirectional_simile": "A professor and an encyclopedia are alike", "comparison_salience": "balanced", "simile_salience": "balanced", "comparison_property1": "Contain definitions", "comparison_property2": "Books", "comparison_property3": "Full of information", "comparison_property4": "Large", "simile_property1": "Source of knowledge", "simile_property2": "Impart information", "simile_property3": "Educational", "simile_property4": "Found in schools" },
+{ "directional_comparison": "A hot spring is like a volcanic geyser", "nondirectional_comparison": "A hot spring and a volcanic geyser are alike", "directional_simile": "A hot temper is like a volcanic geyser", "nondirectional_simile": "A hot temper and a volcanic geyser are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced", "comparison_property1": "Hot", "comparison_property2": "Full of Water", "comparison_property3": "Natural", "comparison_property4": "Powered by the earth's core", "simile_property1": "Can erupt", "simile_property2": "Explosive", "simile_property3": "Violent", "simile_property4": "Angry" },
+{ "directional_comparison": "A war is like a battle", "nondirectional_comparison": "A war and a battle are alike", "directional_simile": "An argument is like a battle", "nondirectional_simile": "An argument and a battle are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced", "comparison_property1": "Fights", "comparison_property2": "Involve violence", "comparison_property3": "Cause death", "comparison_property4": "Involve opposing sides", "simile_property1": "Fights", "simile_property2": "Can be won or lost", "simile_property3": "Involve opposing sides", "simile_property4": "Can cause harm" },
+{ "directional_comparison": "Art galleries are like museums", "nondirectional_comparison": "Art galleries and museums are alike", "directional_simile": "Family albums are like museums", "nondirectional_simile": "Family albums and museums are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced", "comparison_property1": "Contain art", "comparison_property2": "Attract an audience", "comparison_property3": "Hold exhibitions", "comparison_property4": "Educational", "simile_property1": "Preserve history", "simile_property2": "Help remember the past", "simile_property3": "Interesting to look through", "simile_property4": "Contain photos" },
+{ "directional_comparison": "Dynamite sticks are like time bombs", "nondirectional_comparison": "Dynamite sticks and time bombs are alike", "directional_simile": "Cigarettes are like time bombs", "nondirectional_simile": "Cigarettes and time bombs are alike", "comparison_salience": "balanced", "simile_salience": "balanced", "comparison_property1": "Explosives", "comparison_property2": "Go off after a certain time", "comparison_property3": "Can be detonated", "comparison_property4": "Dangerous", "simile_property1": "Can kill", "simile_property2": "Do their damage over time", "simile_property3": "Timing of consequences is uncertain", "simile_property4": "Involve fire and smoke" },
+{ "directional_comparison": "Ghouls are like vampires", "nondirectional_comparison": "Ghouls and vampires are alike", "directional_simile": "Debt collectors are like vampires", "nondirectional_simile": "Debt collectors and vampires are alike", "comparison_salience": "balanced", "simile_salience": "balanced", "comparison_property1": "Scary", "comparison_property2": "Undead", "comparison_property3": "Fictional", "comparison_property4": "Eat people", "simile_property1": "Suck others dry", "simile_property2": "Siphon resources", "simile_property3": "Depend on others", "simile_property4": "Best avoided" },
+{ "directional_comparison": "House arrest is like imprisonment", "nondirectional_comparison": "House arrest and imprisonment are alike", "directional_simile": "Illiteracy is like imprisonment", "nondirectional_simile": "Illiteracy and imprisonment are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced", "comparison_property1": "Prevent leaving", "comparison_property2": "Restrict freedom", "comparison_property3": "Legal consequences", "comparison_property4": "Involve being monitored", "simile_property1": "Limit options", "simile_property2": "Prevent learning", "simile_property3": "Keep people stationary", "simile_property4": "Looked down on" },
+{ "directional_comparison": "Landslides are like earthquakes", "nondirectional_comparison": "Landslides and earthquakes are alike", "directional_simile": "Revolutions are like earthquakes", "nondirectional_simile": "Revolutions and earthquakes are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced", "comparison_property1": "Natural disasters", "comparison_property2": "Destructive", "comparison_property3": "Change the landscape", "comparison_property4": "Cause disruption", "simile_property1": "Shake things up", "simile_property2": "Change the landscape", "simile_property3": "Disruptive", "simile_property4": "Can be scary" },
+{ "directional_comparison": "LED lamps are like spotlights", "nondirectional_comparison": "LED lamps and spotlights are alike", "directional_simile": "Proverbs are like spotlights", "nondirectional_simile": "Proverbs and spotlights are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced", "comparison_property1": "Emit light", "comparison_property2": "Bright", "comparison_property3": "Make things easier to see", "comparison_property4": "Electric", "simile_property1": "Highlight", "simile_property2": "Illuminate", "simile_property3": "Draw attention", "simile_property4": "Flashy" },
+{ "directional_comparison": "Lizards are like snakes", "nondirectional_comparison": "Lizards and snakes are alike", "directional_simile": "Highways are like snakes", "nondirectional_simile": "Highways and snakes are alike", "comparison_salience": "balanced", "simile_salience": "balanced", "comparison_property1": "Reptiles", "comparison_property2": "Cold-blooded", "comparison_property3": "Have scales", "comparison_property4": "Have long tongues", "simile_property1": "Winding", "simile_property2": "Long", "simile_property3": "Twist around things", "simile_property4": "Dangerous" },
+{ "directional_comparison": "Manacles are like shackles", "nondirectional_comparison": "Manacles and shackles are alike", "directional_simile": "Obligations are like shackles", "nondirectional_simile": "Obligations and shackles are alike", "comparison_salience": "imbalanced", "simile_salience": "imbalanced", "comparison_property1": "Restrict people", "comparison_property2": "Made of metal", "comparison_property3": "Used on prisoners", "comparison_property4": "Made of links", "simile_property1": "Tie people down", "simile_property2": "Limit options", "simile_property3": "Hard to escape", "simile_property4": "Feel heavy" },
+{ "directional_comparison": "Microwaves are like ovens", "nondirectional_comparison": "Microwaves and ovens are alike", "directional_simile": "Deserts are like ovens", "nondirectional_simile": "Deserts and ovens are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced", "comparison_property1": "Cook food", "comparison_property2": "Produce heat", "comparison_property3": "Kitchen appliances", "comparison_property4": "Electric", "simile_property1": "Hot", "simile_property2": "Dry", "simile_property3": "Usually empty", "simile_property4": "Unpleasant to be in" },
+{ "directional_comparison": "Moths are like butterflies", "nondirectional_comparison": "Moths and butterflies are alike", "directional_simile": "Dancers are like butterflies", "nondirectional_simile": "Dancers and butterflies are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced", "comparison_property1": "Have wings", "comparison_property2": "Can fly", "comparison_property3": "Insects", "comparison_property4": "Small", "simile_property1": "Fluttery movement", "simile_property2": "Graceful", "simile_property3": "Can be colorful", "simile_property4": "Seem light" },
+{ "directional_comparison": "Nursery rhymes are like lullabies", "nondirectional_comparison": "Nursery rhymes and lullabies are alike", "directional_simile": "Lectures are like lullabies", "nondirectional_simile": "Lectures and lullabies are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced", "comparison_property1": "Calming", "comparison_property2": "Meant for children", "comparison_property3": "Melodic", "comparison_property4": "Contain words that rhyme", "simile_property1": "Can put people to sleep", "simile_property2": "Can be boring", "simile_property3": "Can make a point", "simile_property4": "Can be long" },
+{ "directional_comparison": "Protective padding is like body armor", "nondirectional_comparison": "Protective padding and body armor are alike", "directional_simile": "Self-confidence is like body armor", "nondirectional_simile": "Self-confidence and body armor are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced", "comparison_property1": "Prevent injury", "comparison_property2": "Provide protection", "comparison_property3": "Are worn", "comparison_property4": "Cover certain areas", "simile_property1": "Provide protection", "simile_property2": "Make someone stronger", "simile_property3": "Shield from outside influence", "simile_property4": "Need to be built" },
+{ "directional_comparison": "Steamrollers are like bulldozers", "nondirectional_comparison": "Steamrollers and bulldozers are alike", "directional_simile": "Salesmen are like bulldozers", "nondirectional_simile": "Salesmen and bulldozers are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced", "comparison_property1": "Heavy equipment", "comparison_property2": "Flatten things", "comparison_property3": "Used in construction", "comparison_property4": "Move things out of the way", "simile_property1": "Relentless", "simile_property2": "Aggressive", "simile_property3": "Push something", "simile_property4": "Have a goal" },
+{ "directional_comparison": "Tigers are like lions", "nondirectional_comparison": "Tigers and lions are alike", "directional_simile": "Monarchs are like lions", "nondirectional_simile": "Monarchs and lions are alike", "comparison_salience": "imbalanced", "simile_salience": "balanced", "comparison_property1": "Big cats", "comparison_property2": "Wild", "comparison_property3": "Apex predators", "comparison_property4": "Have fur", "simile_property1": "Regal", "simile_property2": "Rule a domain", "simile_property3": "At the top of a hierarchy", "simile_property4": "Powerful" },
+{ "directional_comparison": "Tire irons are like crow bars", "nondirectional_comparison": "Tire irons and crow bars are alike", "directional_simile": "Questions are like crow bars", "nondirectional_simile": "Questions and crow bars are alike", "comparison_salience": "balanced", "simile_salience": "imbalanced", "comparison_property1": "Tools", "comparison_property2": "Made of metal", "comparison_property3": "Use leverage", "comparison_property4": "Can be heavy", "simile_property1": "Prying", "simile_property2": "Open things up", "simile_property3": "Have a purpose", "simile_property4": "Extract things" },
 ]
