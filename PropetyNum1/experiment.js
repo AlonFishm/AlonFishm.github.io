@@ -12,8 +12,7 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Dear participant, thank you for contributing to our research!<br> This is a study about phrasing. We will ask you to choose 
-			between different ways to say the same thing. <br>The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
+	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>In this study, we are interested in how people choose what to say. <br>The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
 			By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and 
 			Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
 			You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at 
@@ -32,18 +31,18 @@ timeline.push(irb);
 const instructionsA = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
-		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
-		<li>Smart</li><li>Long hair</li></ul></div><br>
+	stimulus: `<p>At each stage of the study, you will see a list of one or more properties, like this:</p>
+		<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Tall</li><li>Long hair</li></ul></div><br>
 		<div style="visibility:hidden">
-		You will then see a pair of similarity statements, like this:
+		You will then see a pair of sentences, like this:
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>`+leftEx1+`</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>`+rightEx1+`</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
-		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
-		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
+		<div>Suppose that what Lucy and Sarah have in common is the list of properties above: being smart, tall, and having long hair.<br>
+		Which sentence would you rather say: A or B?</div><br>
 		</div>`,
 	
 	choices: ['Continue'],
@@ -58,18 +57,18 @@ timeline.push(instructionsA);
 const instructionsB = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
-		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
-		<li>Smart</li><li>Long hair</li></ul></div><br>
-		You will then see a pair of similarity statements, like this:
+	stimulus: `<p>At each stage of the study, you will see a list of one or more properties, like this:</p>
+		<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Tall</li><li>Long hair</li></ul></div><br>
+		You will then see a pair of sentences, like this:
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>`+leftEx1+`</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>`+rightEx1+`</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
 		<div style="visibility:hidden">
-		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
-		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
+		<div>Suppose that what Lucy and Sarah have in common is the list of properties above: being smart, tall, and having long hair.<br>
+		Which sentence would you rather say: A or B?</div><br>
 		</div>`,
 	
 	choices: ['Continue'],
@@ -84,20 +83,20 @@ timeline.push(instructionsB);
 const instructionsC = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>This study is about similarity statements: sentences that say two things have one or more properties in common. <br>At each stage of the study, you will see 
-		a list of properties, like this:</p><div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
-		<li>Smart</li><li>Long hair</li></ul></div><br>
-		You will then see a pair of similarity statements, like this:
+	stimulus: `<p><p>At each stage of the study, you will see a list of one or more properties, like this:</p>
+		<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Smart</li><li>Tall</li><li>Long hair</li></ul></div><br>
+		You will then see a pair of sentences, like this:
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>Lucy is like Sarah</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>Lucy and Sarah are alike</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>`+leftEx1+`</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>`+rightEx1+`</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
-		<div>We are interested to know which similarity statement you think is better, considering the list of properties.<br>
-		For example, if what Lucy and Sarah have in common is being smart and having long hair, which sentence is better: A or B?</div><br>
-		`,
+		<div>Suppose that what Lucy and Sarah have in common is the list of properties above: being smart, tall, and having long hair.<br>
+		Which sentence would you rather say: A or B?</div><br>
+		</div>`,
 	
-	choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 	
 /*	on_finish: function(data) {
 		jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
@@ -105,6 +104,66 @@ const instructionsC = {
 };
 
 timeline.push(instructionsC);
+
+const instructionsD = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: `<p>This is what a full question looks like:</p><br>
+		<div style="visibility:hidden">
+			<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Peninsula</li></div><br>
+				<div style="width:600px">
+					<div style="width:250px; float: left; margin-left:50px"><p><b>`+leftEx2+`</b><br>(A)</p></div>
+					<div style="width:250px; float: right"><p><b>`+rightEx2+`</b><br>(B)</p></div>
+					<div style="visibility:hidden">buffer</div>
+				</div>
+			</div>`,
+	
+	choices: ['Continue'],
+	
+/*	on_finish: function(data) {
+		jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+		}*/
+};
+
+timeline.push(instructionsD);
+
+var instructionsE = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `<p>This is what a full question looks like:</p><br>
+		<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Peninsula</li></div><br>
+			<div style="visibility:hidden">
+				<div style="width:600px">
+					<div style="width:250px; float: left; margin-left:50px"><p><b>`+leftEx2+`</b><br>(A)</p></div>
+					<div style="width:250px; float: right"><p><b>`+rightEx2+`</b><br>(B)</p></div>
+					<div style="visibility:hidden">buffer</div>
+				</div>
+				<div style="visibility:hidden">
+				<button class="jspsych-btn">['A is much better','A is better','No preference','B is better','B is much better']</button>
+				</div>
+			</div>`,
+  choices: [],
+  trial_duration: 2000,
+};
+
+timeline.push(instructionsE);
+
+var instructionsF = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `<p>This is what a full question looks like:</p><br>
+		<div><ul style="text-align:left; width:300px; margin:auto; padding-left:180px; font-size:90%">
+		<li>Peninsula</li></div><br>
+				<div style="width:600px">
+					<div style="width:250px; float: left; margin-left:50px"><p><b>`+leftEx2+`</b><br>(A)</p></div>
+					<div style="width:250px; float: right"><p><b>`+rightEx2+`</b><br>(B)</p></div>
+					<div style="visibility:hidden">buffer</div>
+				</div>`,
+	choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+};
+
+timeline.push(instructionsF);
+
 
 const b_instructions = {
 	type: jsPsychHtmlButtonResponse,
@@ -143,7 +202,7 @@ const trials = {
 			data: jsPsych.timelineVariable('data'),
 
 			on_finish: function(data) {
-				jsPsych.setProgressBar((data.trial_index-3)/2 / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
+				jsPsych.setProgressBar((data.trial_index-6)/2 / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
 			}
 		}
 	],

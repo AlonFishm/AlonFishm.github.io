@@ -6,10 +6,24 @@ function shuffle_array(arr) {
 	return arr;
 };
 
+// randomize which structure appears on which side
+const side = Math.floor(Math.random() * 2);
+
+if (side < 1) {
+		leftEx1 = 'Lucy is like Sarah';
+		rightEx1 = 'Lucy and Sarah are alike';
+		leftEx2 = 'Korea is like Italy';
+		rightEx2 = 'Korea and Italy are alike';
+	} else {
+		leftEx1 = 'Lucy and Sarah are alike';
+		rightEx1 = 'Lucy is like Sarah';
+		leftEx2 = 'Korea and Italy are alike';
+		rightEx2 = 'Korea is like Italy';
+	};
+
 // makes a (non-shuffled) array of 16 stimuli, counterbalanced by Type (comparison vs simile) and PropertyNum (1 through 4), randomizing which structures appear on left & right
 function create_balanced_array2(json_object) {
 	let tv_array = [];
-	const side = Math.floor(Math.random() * 2);
 	for (let i = 0; i < 8; i++) {
 		const num = i%4;
 		obj = {};
