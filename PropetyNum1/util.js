@@ -10,11 +10,13 @@ function shuffle_array(arr) {
 const side = Math.floor(Math.random() * 2);
 
 if (side < 1) {
+		stim_sides = 'dir_nondir';
 		leftEx1 = 'Lucy is like Sarah';
 		rightEx1 = 'Lucy and Sarah are alike';
 		leftEx2 = 'Korea is like Italy';
 		rightEx2 = 'Korea and Italy are alike';
 	} else {
+		stim_sides = 'nondir_dir';
 		leftEx1 = 'Lucy and Sarah are alike';
 		rightEx1 = 'Lucy is like Sarah';
 		leftEx2 = 'Korea and Italy are alike';
@@ -48,11 +50,13 @@ function create_balanced_array2(json_object) {
 		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
 					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
 		obj.fullDisplay = obj.list + obj.choices;
+		obj.duration = (num+1)*500+1000;
 		obj.data = {};
 		obj.data.item = json_object[i].directional_comparison;
 		obj.data.number = num+1;
 		obj.data.type = "literal";
 		obj.data.salience = json_object[i].comparison_salience;
+		obj.data.sides = stim_sides;
 		tv_array.push(obj);
 	}
 	for (let i = 8; i < 16; i++) {
@@ -79,16 +83,19 @@ function create_balanced_array2(json_object) {
 		obj.display = obj.list + '<div style="visibility:hidden">' + obj.choices +
 					'<button class="jspsych-btn">["A is much better","A is better","No preference","B is better","B is much better"]</button></div></div>';
 		obj.fullDisplay = obj.list + obj.choices;
+		obj.duration = (num+1)*500+1000;
 		obj.data = {};
 		obj.data.item = json_object[i].directional_comparison;
 		obj.data.number = num+1;
 		obj.data.type = "simile";
 		obj.data.salience = json_object[i].simile_salience;
+		obj.data.sides = stim_sides;
 		tv_array.push(obj);
 	}
 	return tv_array;
 };
 
+/*
 // makes a (non-shuffled) array of 16 stimuli, counterbalanced by Type (comparison vs simile) and PropertyNum (1 through 4)
 function create_balanced_array(json_object) {
 	let tv_array = [];
@@ -142,7 +149,7 @@ function create_balanced_array(json_object) {
 	}
 	return tv_array;
 };
-
+*/
 
 // copy text on click
 function copy(that){

@@ -140,7 +140,7 @@ var instructionsE = {
 					<div style="visibility:hidden">buffer</div>
 				</div>
 				<div style="visibility:hidden">
-				<button class="jspsych-btn">['A is much better','A is better','No preference','B is better','B is much better']</button>
+				<button class="jspsych-btn">['Definitely A','Probably A','No preference','Probably B','Definitely B']</button>
 				</div>
 			</div>`,
   choices: [],
@@ -159,7 +159,7 @@ var instructionsF = {
 					<div style="width:250px; float: right"><p><b>`+rightEx2+`</b><br>(B)</p></div>
 					<div style="visibility:hidden">buffer</div>
 				</div>`,
-	choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 };
 
 timeline.push(instructionsF);
@@ -190,14 +190,14 @@ const trials = {
 			
 			choices: [],
 			
-			trial_duration: 1500,
+			trial_duration: jsPsych.timelineVariable('duration'),
 		},
 		{
 			type:  jsPsychHtmlButtonResponse,
 			
 			stimulus: jsPsych.timelineVariable('fullDisplay'),
 			
-			choices: ['A is much better','A is better','No preference','B is better','B is much better'],
+			choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 			
 			data: jsPsych.timelineVariable('data'),
 
