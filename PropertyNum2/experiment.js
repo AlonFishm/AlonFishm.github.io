@@ -12,7 +12,8 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>In this study, we are interested in how people choose what to say. <br>The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
+	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>In this study, we are interested in how people understand comparisons. <br>
+			The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
 			By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and 
 			Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
 			You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at 
@@ -26,7 +27,32 @@ const irb = {
 	//	}
 };
 
-//timeline.push(irb);
+timeline.push(irb);
+
+const instructions = {
+	type: jsPsychHtmlButtonResponse,
+	
+		stimulus: `At each stage of the study, you will see a sentence comparing between two things, <br>followed by a list of properties.
+		We are interested in what you think the sentence likely means;<br> that is, which of the listed properties did the speaker of the sentence have in mind?
+		<p>For example: </p>
+		<div style="text-align:left; width:350px; margin:auto">
+		<b>Oranges are like apples</b><br><p>How so? (you may select more than one)</p>
+		&#9634 &nbsp Grow on trees<br>
+		&#9634 &nbsp Can be juggled<br>
+		&#9634 &nbsp Fruits<br>
+		&#9634 &nbsp Countries<br>
+		&#9634 &nbsp Can go bad<br><br>
+		</div>
+		If you understand the instructions, you may now begin the study.<br><br>`,
+		
+		choices: ['Continue'],
+	
+	//on_finish: function(data) {
+	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+	//	}
+};
+
+timeline.push(instructions);
 
 let temp_array = create_balanced_array(shuffle_array(trial_objects));
 let tv_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b) 
@@ -49,7 +75,7 @@ const trials = {
 			data: jsPsych.timelineVariable('data'),
 
 			on_finish: function(data) {
-				jsPsych.setProgressBar((data.trial_index) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
+				jsPsych.setProgressBar((data.trial_index - 1) / (tv_array.length)); //only trials count for progress, not instructions, debriefing, etc.
 			}
 		}
 	],
@@ -82,7 +108,7 @@ const q_instructions = {
 	choices: ['Continue'],
 };
 
-//timeline.push(q_instructions);
+timeline.push(q_instructions);
 
 const questionnaire = {
 	type: jsPsychSurvey,
@@ -126,13 +152,13 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the listed properties influence people's preferences for phrasing similarity statements. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: 'The goal of this study was to explore how people interpret comparisons and similes phrased with the words "like" and "alike". <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail.'
 			}
 		]
 	]
 };
 
-//timeline.push(questionnaire);
+timeline.push(questionnaire);
 
 
 jsPsych.run(timeline)
