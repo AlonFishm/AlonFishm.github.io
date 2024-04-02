@@ -9,6 +9,14 @@ function shuffle_array(arr) {
 // randomize which structure appears on which side
 const side = Math.floor(Math.random() * 2);
 
+if (side < 1) {
+		leftNonce = 'A GAX is like a ZUM';
+		rightNonce = 'A GAX and a ZUM are alike';
+	} else {
+		leftNonce = 'A GAX and a ZUM are alike';
+		rightNonce = 'A GAX is like a ZUM';
+	};
+
 function create_balanced_array(json_object) {
 	let tv_array = [];
 	for (let i = 0; i < 4; i++) {

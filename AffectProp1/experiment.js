@@ -35,8 +35,8 @@ const nonce_trial = {
 	
 	stimulus: '<div style="width:900px; float: center">'+nonce_stim.text+`</div><p>Which sentence would you rather say: A or B?</p>
 		<div style="width:700px; float: center">
-		<div style="width:250px; float: left; margin-left:150px"><p><b>A GAX is like a ZUM</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>A GAX and a ZUM are alike</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:150px"><p><b>`+leftNonce+`</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>`+rightNonce+`</b><br>(B)</p></div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
 		</div>`,
 	
