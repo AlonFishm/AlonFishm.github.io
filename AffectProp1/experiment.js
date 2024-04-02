@@ -28,10 +28,30 @@ const irb = {
 
 //timeline.push(irb);
 
+let nonce_stim = shuffle_array(nonce_instr)[0];
+
+const nonce_trial = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: '<div style="width:900px; float: center">'+nonce_stim.text+`</div><p>Which sentence would you rather say: A or B?</p>
+		<div style="width:700px; float: center">
+		<div style="width:250px; float: left; margin-left:150px"><p><b>A GAX is like a ZUM</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A GAX and a ZUM are alike</b><br>(B)</p></div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		</div>`,
+	
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
+	
+	data: nonce_stim.data,
+	
+};
+
+timeline.push(nonce_trial);
+
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-		stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
+	stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
 		<div style="width:800px; float: center">
 		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a story</b><br>(A)</p></div>
 		<div style="width:250px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
@@ -41,7 +61,7 @@ const instructions = {
 			<p style="color:blue">Both are sequences of events which haven't actually happened.</p>
 		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.</p><br>`,
 		
-		choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 	
 	//on_finish: function(data) {
 	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));

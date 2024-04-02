@@ -21,28 +21,27 @@ let trial_objects = [
 
 let nonce_instr = [
 	{
-		"phrasing": "nondirectional",
-		"propNum": "one",
-		"text": `Suppose that you want to express the fact that two things (X and Y) share a certain specific aspect or characteristic. <br>
-		Which sentence would you rather say: A or B?`
+		"data": {"phrasing": "nondirectional",
+				"propNum": "one"},
+		"text": `Suppose that you want to express the fact that two things (a ZUM and a GAX) share one specific property.`
 	},
 	{
-		"phrasing": "nondirectional",
-		"propNum": "many",
-		"text": `Suppose that you want to express the fact that two things (X and Y) share a large number of aspects or characteristics, 
-		constituting a broad sense of similarity between them. <br>Which sentence would you rather say: A or B?`
+		"data": {"phrasing": "nondirectional",
+				"propNum": "many"},
+		"text": `Suppose that you want to express the fact that two things (a ZUM and a GAX) share a large number of properties, constituting 
+			a broad sense of similarity between them.`
 	},
 	{
-		"phrasing": "directional",
-		"propNum": "one",
-		"text": `Suppose that you want to express the fact that one specific property of (Y) is also shared by (X).<br>
-		Which sentence would you rather say: A or B?`
+		"data": {"phrasing": "directional",
+				"propNum": "one"},
+		"text": `Suppose that you want to express the fact that one specific property of one thing (a ZUM) is also shared by another thing 
+			(a GAX).`
 	},
 	{
-		"phrasing": "directional",
-		"propNum": "many",
-		"text": `Suppose that you want to express the fact that a large number of properties of (Y) are also shared by (X).<br>
-		Which sentence would you rather say: A or B?`
+		"data": {"phrasing": "directional",
+				"propNum": "many"},
+		"text": `Suppose that you want to express the fact that a large number of properties of one thing (a ZUM) are also shared by another 
+			thing (a GAX).`
 	}
 ]
 
