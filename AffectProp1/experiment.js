@@ -28,38 +28,20 @@ const irb = {
 
 //timeline.push(irb);
 
-let nonce_stim = shuffle_array(nonce_instr)[0];
-
-const nonce_trial = {
-	type: jsPsychHtmlButtonResponse,
-	
-	stimulus: '<div style="width:900px; float: center">'+nonce_stim.text+`</div><p>Which sentence would you rather say: A or B?</p>
-		<div style="width:700px; float: center">
-		<div style="width:250px; float: left; margin-left:150px"><p><b>`+leftNonce+`</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>`+rightNonce+`</b><br>(B)</p></div>
-		<div style="visibility:hidden">All the buffer we could ever need</div>
-		</div>`,
-	
-	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
-	
-	data: nonce_stim.data,
-	
-};
-
-timeline.push(nonce_trial);
-
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
 	stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a story</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a zinx</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A zinx is a dream</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
-		<p>Following each pair, you will see a potential interpretation of the two sentences. For example:</p>
-			<p style="color:blue">Both are sequences of events which haven't actually happened.</p>
-		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.</p><br>`,
+		<p>The sentences may include real words (like 'dream') as well as made up words (like 'zinx').<br>
+		Following each pair, you will see a potential interpretation of the two sentences. For example:</p>
+			<p>Interpretation: <span style="color:blue">Both are sequences of events which haven't actually happened</span></p>
+		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.<br>
+		Try to answer even if you disagree with the interpretation, or have a hard time understanding it.</p><br>`,
 		
 	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 	
@@ -70,12 +52,23 @@ const instructions = {
 
 timeline.push(instructions);
 
-
-//let test_array = create_balanced_array(shuffle_array(trial_object1));
-let temp_array = create_balanced_array(shuffle_array(trial_objects));
-let tv_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b) 
+let nons_array = shuffle_array(create_nons_objects(shuffle_array(nons_words)));
+let temp_array = create_balanced_array(shuffle_array(affect_objects));
+let affect_array = jsPsych.randomization.shuffleNoRepeats(temp_array,function(a,b) 
 																{return a.data.property === b.data.property & a.data.type === b.data.type}); //shuffle so that 2 consecutive stimuli don't share both type AND affect
-// display stimulus alone for a few seconds with no button, then add choices and wait for response
+let filler_array = shuffle_array(create_filler_objects(filler_objects));
+let tv_array = [];
+
+for (let i = 0; i < 16; i ++) {
+	tv_array.push(affect_array[i]);
+	if (i % 4 == 0) {
+		tv_array.push(filler_array[(i)/4]);
+	};
+	if (i % 4 == 2) {
+		tv_array.push(nons_array[(i-2)/4]);
+	};
+};
+
 const trials = {
 	timeline: [
 		{
@@ -96,6 +89,22 @@ const trials = {
 };
 
 timeline.push(trials);
+
+/*
+const nons_trial = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: nons_array.display,
+	
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
+	
+	data: nons_stim.data,
+	
+};
+
+timeline.push(nons_trial);
+
+*/
 
 const q_instructions = {
 	type: jsPsychHtmlButtonResponse,

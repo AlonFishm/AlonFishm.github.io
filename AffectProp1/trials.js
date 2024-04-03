@@ -1,4 +1,4 @@
-let trial_objects = [
+let affect_objects = [
 {"directional_comparison": "Lizards are like snakes", "nondirectional_comparison": "Lizards and snakes are alike", "directional_simile": "Mountain roads are like snakes", "nondirectional_simile": "Mountain roads and snakes are alike", "comparison_neutral_prop": "Both move close to the ground and are therefore difficult to notice", "comparison_affective_prop": "Both move close to the ground and are therefore difficult to defend oneself from", "simile_neutral_prop": "Both are winding and elongated", "simile_affective_prop": "Both are winding and dangerous"},
 {"directional_comparison": "Ghouls are like vampires", "nondirectional_comparison": "Ghouls and vampires are alike", "directional_simile": "Debt collectors are like vampires", "nondirectional_simile": "Debt collectors and vampires are alike", "comparison_neutral_prop": "Both are supernatural creatures", "comparison_affective_prop": "Both are supernatural monsters", "simile_neutral_prop": "Both rely on others to survive", "simile_affective_prop": "Both prey on others to survive"},
 {"directional_comparison": "A dictionary is like an encyclopedia", "nondirectional_comparison": "A dictionary and an encyclopedia are alike", "directional_simile": "A professor is like an encyclopedia", "nondirectional_simile": "A professor and an encyclopedia are alike", "comparison_neutral_prop": "Both provide general information", "comparison_affective_prop": "Both provide important information", "simile_neutral_prop": "Both are sources of certain information ", "simile_affective_prop": "Both are sources of useful information"},
@@ -17,7 +17,35 @@ let trial_objects = [
 {"directional_comparison": "Moths are like butterflies", "nondirectional_comparison": "Moths and butterflies are alike", "directional_simile": "Dancers are like butterflies", "nondirectional_simile": "Dancers and butterflies are alike", "comparison_neutral_prop": "Both have colorful patterns on their wings", "comparison_affective_prop": "Both have exquisite patterns on their wings", "simile_neutral_prop": "Both move lightly", "simile_affective_prop": "Both move beautifully"},
 {"directional_comparison": "House arrest is like imprisonment", "nondirectional_comparison": "House arrest and imprisonment are alike", "directional_simile": "Illiteracy is like imprisonment", "nondirectional_simile": "Illiteracy and imprisonment are alike", "comparison_neutral_prop": "Both are measures employed by law enforcement to confine individuals", "comparison_affective_prop": "Both are solutions employed by justice systems for dealing with criminals", "simile_neutral_prop": "Both keep one from engaging with the outside world", "simile_affective_prop": "Both keep one from experiencing the beauty of the world"},
 {"directional_comparison": "LED lamps are like spotlights", "nondirectional_comparison": "LED lamps and spotlights are alike", "directional_simile": "Proverbs are like spotlights", "nondirectional_simile": "Proverbs and spotlights are alike", "comparison_neutral_prop": "Both cast bright light", "comparison_affective_prop": "Both cast focused light", "simile_neutral_prop": "They both present their object in a new light", "simile_affective_prop": "They both illuminate their object in a helpful way"}
-]
+];
+
+let nons_words = ["cridges","gwarfs","thirks","nosses","spacks","blaiths","prooms","yuts"];
+
+let filler_objects = ["foxes","cities","beards","hallways","telescopes","forests","beehives","fugitives"];
+
+/*
+let nons_objects = [
+	{
+		"data": {"phrasing": "nondirectional",
+				"propNum": "one"},
+		"text": `The two share one specific property.`
+	},
+	{
+		"data": {"phrasing": "nondirectional",
+				"propNum": "many"},
+		"text": `The two share a large number of properties, constituting a broad sense of similarity between them.`
+	},
+	{
+		"data": {"phrasing": "directional",
+				"propNum": "one"},
+		"text": `One specific property of the first is also shared by the second.`
+	},
+	{
+		"data": {"phrasing": "directional",
+				"propNum": "many"},
+		"text": `A large number of properties of the first are also shared by the second.`
+	}
+];
 
 let nonce_instr = [
 	{
@@ -43,5 +71,5 @@ let nonce_instr = [
 		"text": `Suppose that you want to express the fact that a large number of properties of one thing (a ZUM) are also shared by another 
 			thing (a GAX).`
 	}
-]
-
+];
+*/
