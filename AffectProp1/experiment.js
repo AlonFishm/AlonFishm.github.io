@@ -33,12 +33,17 @@ const instructions = {
 	
 	stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a zinx</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>A zinx is a dream</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a story</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
-		<p>The sentences may include real words (like 'dream') as well as made up words (like 'zinx').<br>
-		Following each pair, you will see a potential interpretation of the two sentences. For example:</p>
+		<p>In some cases, the sentences may include made up words. For example:</p>
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A zum and a gax are similar</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A zum and a gax are the same</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<p>Following each pair, you will see a potential interpretation of the two sentences. For example:</p>
 			<p>Interpretation: <span style="color:blue">Both are sequences of events which haven't actually happened</span></p>
 		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.<br>
 		Try to answer even if you disagree with the interpretation, or have a hard time understanding it.</p><br>`,
@@ -51,6 +56,35 @@ const instructions = {
 };
 
 timeline.push(instructions);
+
+const instructionsB = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a story</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<p>Following each pair, you will see a potential interpretation of the two sentences. For example:</p>
+		<p>Interpretation: <span style="color:blue">Both are sequences of events which haven't actually happened</span></p><br>
+		<p>In some cases, the sentences may include made up words. For example:</p>
+		<div style="width:800px; float: center">
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A zum and a gax are similar</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A zum and a gax are the same</b><br>(B)</p></div>
+		<div style="visibility:hidden">All the buffer we could ever need</div></div>
+		<p>Interpretation: <span style="color:blue">They share a number of beneficial qualities</span></p>
+		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.<br>
+		Try to answer even if you disagree with the interpretation, or have a hard time understanding it.</p>`,
+		
+	choices: ['Continue'],
+	
+	//on_finish: function(data) {
+	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+	//	}
+};
+
+timeline.push(instructionsB);
 
 let nons_array = shuffle_array(create_nons_objects(shuffle_array(nons_words)));
 let temp_array = create_balanced_array(shuffle_array(affect_objects));
