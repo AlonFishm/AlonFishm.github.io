@@ -26,8 +26,8 @@ const irb = {
 	//	}
 };
 
-//timeline.push(irb);
-
+timeline.push(irb);
+/*
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
@@ -56,7 +56,7 @@ const instructions = {
 };
 
 timeline.push(instructions);
-
+*/
 const instructionsB = {
 	type: jsPsychHtmlButtonResponse,
 	
