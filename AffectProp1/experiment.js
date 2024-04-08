@@ -192,7 +192,7 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the listed properties influence people's preferences for phrasing similarity statements. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: "The goal of this study was to explore how the potential interpretation influences people's preferences for phrasing similarity statements. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
 			}
 		]
 	]
