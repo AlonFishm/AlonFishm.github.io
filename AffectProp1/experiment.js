@@ -56,11 +56,11 @@ const instructions = {
 };
 
 timeline.push(instructions);
-*/
+
 const instructionsB = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>At each stage of the study, you will see a a pair of sentences. For example:</p>
+	stimulus: `<p>At each stage of the study, you will see a pair of sentences. For example:</p>
 		<div style="width:800px; float: center">
 		<div style="width:250px; float: left; margin-left:200px"><p><b>A dream is a story</b><br>(A)</p></div>
 		<div style="width:250px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
@@ -70,8 +70,8 @@ const instructionsB = {
 		<p>Interpretation: <span style="color:blue">Both are sequences of events which haven't actually happened</span></p><br>
 		<p>In some cases, the sentences may include made up words. For example:</p>
 		<div style="width:800px; float: center">
-		<div style="width:250px; float: left; margin-left:200px"><p><b>A zum and a gax are similar</b><br>(A)</p></div>
-		<div style="width:250px; float: right"><p><b>A zum and a gax are the same</b><br>(B)</p></div>
+		<div style="width:250px; float: left; margin-left:200px"><p><b>A ZUM and a GAX are similar</b><br>(A)</p></div>
+		<div style="width:250px; float: right"><p><b>A ZUM and a GAX are the same</b><br>(B)</p></div>
 		<div style="visibility:hidden">All the buffer we could ever need</div></div>
 		<p>Interpretation: <span style="color:blue">They share a number of beneficial qualities</span></p>
 		<p>We are interested in which sentence you think would be a better and more natural fit for the given interpretation.<br>
@@ -85,6 +85,38 @@ const instructionsB = {
 };
 
 timeline.push(instructionsB);
+*/
+
+const instructionsC = {
+	type: jsPsychHtmlButtonResponse,
+	
+	stimulus: `<p>At each stage of the study, you will see an <span style="color:blue"><b>idea</b></span> that someone might want to express.
+		For example:</p>
+		<p style="color:blue"><b>Dreams and stories are both sequences of events which haven't actually happened</b></p>
+		<p>Underneath, you will see two different sentences that someone might say to express this idea. For example:</p>
+		<div style="width:800px; float: center">
+		<div style="width:300px; float: left; margin-left:150px"><p><b>A dream is a story</b><br>(A)</p></div>
+		<div style="width:300px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
+		</div>
+		<div style="visibility:hidden">All the buffer we could ever need</div>
+		<p>In some cases, the idea and the two sentences might be about made up words. For example:</p>
+		<p style="color:blue"><b>ZUMs and GAXes share a number of beneficial qualities</b></p>
+		<div style="width:800px; float: center">
+		<div style="width:300px; float: left; margin-left:150px"><p><b>A ZUM and a GAX are similar</b><br>(A)</p></div>
+		<div style="width:300px; float: right"><p><b>A ZUM and a GAX are the same</b><br>(B)</p></div>
+		<div style="visibility:hidden">All the buffer we could ever need</div></div>
+		<p>We are interested in which of the two sentences (A or B) you would choose to say to express the idea.<br>
+		Try to answer even if you disagree with the idea, or have a hard time understanding it.</p>`,
+		
+	choices: ['Continue'],
+	
+	//on_finish: function(data) {
+	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));
+	//	}
+};
+
+timeline.push(instructionsC);
+
 
 let nons_array = shuffle_array(create_nons_objects(shuffle_array(nons_words)));
 let temp_array = create_balanced_array(shuffle_array(affect_objects));

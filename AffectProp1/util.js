@@ -27,12 +27,12 @@ if (side < 1) {
 
 //takes two sentences + an interpretation and returns full display
 function disp_func(lefthand,righthand,interp) {
-	let display = '<div style="width:600px"><div style="width:250px; float: left; margin-left:50px"><p><b>'+
+	let display = '<p style="color:blue"><b>'+interp+'</b></p>'+
+					'<div style="width:800px"><div style="width:400px; float: left; margin-left:0px"><p><b>'+
 					lefthand+
-					'</b><br>(A)</p></div><div style="width:250px; float: right"><p><b>'+
+					'</b><br>(A)</p></div><div style="width:400px; float: right"><p><b>'+
 					righthand+
-					'</b><br>(B)</p></div><div style="visibility:hidden">buffer</div></div>'+
-					'<p>Interpretation: <span style="color:blue">'+interp+'</span></p><br>';
+					'</b><br>(B)</p></div><div style="visibility:hidden">all the buffer we could ever need</div></div>';
 	return display;
 };
 
