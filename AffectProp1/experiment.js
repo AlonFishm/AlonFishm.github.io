@@ -12,7 +12,7 @@ let timeline = [];
 const irb = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>In this study, we are interested in how people choose what to say. <br>The whole thing should take about 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
+	stimulus: `<p>Dear participant, thank you for contributing to our research! <br>In this study, we are interested in how people choose what to say. <br>The whole thing should take less than 10 minutes. <br><br><p style="font-size:80%;">Legal information: 
 			By answering the following questions, you are participating in a research study by cognitive scientists at the Hub for Digital Humanities and 
 			Social Sciences at The Open University of Israel. If you have questions about this research, please contact Alon Fishman at alonfishm@gmail.com. 
 			You must be at least 18 years old to participate. Your participation in this research is voluntary and you may decline further participation at 
@@ -224,7 +224,7 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the idea that someone wants to express influences the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: "The goal of this study was to explore how the idea that someone wants to express might influence the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
 			}
 		]
 	]
