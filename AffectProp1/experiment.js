@@ -99,7 +99,7 @@ const instructionsC = {
 		<div style="width:300px; float: right"><p><b>A story is a dream</b><br>(B)</p></div>
 		</div>
 		<div style="visibility:hidden">All the buffer we could ever need</div>
-		<p>In some cases, the idea and the two sentences might be about made up words. For example:</p>
+		<p>In some cases, the idea and the two sentences might be about made up words (in ALL CAPS). For example:</p>
 		<p style="color:blue"><b>ZUMs and GAXes share a number of beneficial qualities</b></p>
 		<div style="width:800px; float: center">
 		<div style="width:300px; float: left; margin-left:150px"><p><b>A ZUM and a GAX are similar</b><br>(A)</p></div>
@@ -224,7 +224,7 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the potential interpretation influences people's preferences for phrasing similarity statements. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: "The goal of this study was to explore how the idea that someone wants to express influences the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
 			}
 		]
 	]
