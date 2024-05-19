@@ -32,7 +32,16 @@ timeline.push(irb);
 const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
-	stimulus: `<p>At each stage of the study, you will see an <span style="color:blue"><b>idea</b></span> that someone might want to express, 
+	stimulus: `<p>At each stage of the study, you will be asked to imagine having a certain <span style="color:blue"><b>emotional attitude</b></span> 
+		about some <i>made up things</i>.<br>For example, the following asks you to imagine having a certain attitude towards <i>zums</i>:</p>
+		<p style="color:blue">Say you feel that <b><i>zums</i> share some surprising properties of <i>gaxes</i></b></p>
+		<p>Which of the two following sentences (A or B) would you choose to say to express this attitude?</p>
+		<div style="width:900px; float: center">
+		<div style="width:350px; float: left; margin-left:150px"><p><b>`+pres_sides("<i>zums</i>","<i>gaxes</i>")[0]+`</b><br>(A)</p></div>
+		<div style="width:350px; float: right"><p><b>`+pres_sides("<i>zums</i>","<i>gaxes</i>")[1]+`</b><br>(B)</p></div>
+		<div style="visibility:hidden">All the buffer we could ever need</div></div>`,
+
+/*	stimulus: `<p>At each stage of the study, you will see an <span style="color:blue"><b>idea</b></span> that someone might want to express, 
 		concerning a pair of <i>made up words</i>. <br>For example:</p>
 		<p style="color:blue">A <i>zum</i> and a <i>gax</i> are both <b>strong and fast</b></p>
 		<p>Underneath, you will see two different sentences that someone might say to express this idea. <br>For example:</p>
@@ -42,8 +51,8 @@ const instructions = {
 		<div style="visibility:hidden">All the buffer we could ever need</div></div>
 		<p>We are interested in which of the two sentences (A or B) you would choose to say to express the idea.<br>
 		Try to answer even if the idea isn't entirely clear to you.</p>`,
-		
-	choices: ['Continue'],
+*/		
+	choices: ['Definitely A','Probably A','No preference','Probably B','Definitely B'],
 	
 	//on_finish: function(data) {
 	//	jsPsych.setProgressBar((data.trial_index - 1) / (timeline.length + tv_array.length));

@@ -27,7 +27,7 @@ if (side < 1) {
 
 //takes two sentences + an interpretation and returns full display
 function disp_func(lefthand,righthand,interp) {
-	let display = '<p style="color:blue">'+interp+'</p>'+
+	let display = '<p style="color:blue">Say you feel that <b>'+interp+'</b></p>'+
 					'<div style="width:800px"><div style="width:400px; float: left; margin-left:0px"><p><b>'+
 					lefthand+
 					'</b><br>(A)</p></div><div style="width:400px; float: right"><p><b>'+
@@ -43,8 +43,8 @@ function create_balanced_array(props_list,nons_list) {
 		obj = {};
 		obj.property = props_list[i].property;
 		obj.sents = pres_sides(nons_list[i],nons_list[i+8]);
-//		obj.interp = '<span style="text-transform: capitalize">'+nons_list[i]+"</span> and "+nons_list[i+8]+" share the property of being "+obj.property;
-		obj.interp = '<span style="text-transform: capitalize"><i>'+nons_list[i]+"</i></span> and <i>"+nons_list[i+8]+"</i> are both <b>"+obj.property+"</b>";
+		obj.interp = "<i>"+nons_list[i]+"</i> and <i>"+nons_list[i+8]+"</i> share some "+obj.property+" properties";
+//		obj.interp = '<span style="text-transform: capitalize"><i>'+nons_list[i]+"</i></span> and <i>"+nons_list[i+8]+"</i> are both <b>"+obj.property+"</b>";
 		obj.display = disp_func(obj.sents[0],obj.sents[1],obj.interp);
 		obj.data = {};
 		obj.data.type = "critical";
@@ -59,8 +59,9 @@ function create_balanced_array(props_list,nons_list) {
 		obj = {};
 		obj.property = props_list[i].property;
 		obj.sents = pres_sides(nons_list[i],nons_list[i+8]);
-//		obj.interp = '<span style="text-transform: capitalize">'+nons_list[i]+"</span> share "+nons_list[i+8]+"' property of being "+obj.property;
-		obj.interp = '<span style="text-transform: capitalize"><i>'+nons_list[i+8]+"</i></span> are <b>"+obj.property+'</b>, and so are <i>'+nons_list[i]+"</i>";
+		obj.interp = "<i>"+nons_list[i]+"</i> share some "+obj.property+" properties of <i>"+nons_list[i+8]+"</i>";
+//		obj.interp = '<span style="text-transform: capitalize"><i>'+nons_list[i+8]+"</i></span> are <b>"+obj.property+'</b>, and so are <i>'+nons_list[i]+"</i>";
+//		obj.interp = '<i>'+nons_list[i]+"</i> are <b>"+obj.property+'</b>';
 		obj.display = disp_func(obj.sents[0],obj.sents[1],obj.interp);
 		obj.data = {};
 		obj.data.type = "critical";
