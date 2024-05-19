@@ -144,7 +144,7 @@ const questionnaire = {
 			},
 			{
 				type: 'text',
-				prompt: 'Please share any other comments or thoughts you have about the study (Did you enjoy it? Did you find it difficult?)',
+				prompt: 'Please share any other comments or thoughts you have about the study (For example, did you enjoy it? Did you find it difficult?)',
 				name: 'comments',
 				textbox_columns: 30,
 				textbox_rows: 3
