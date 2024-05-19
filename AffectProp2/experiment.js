@@ -33,7 +33,7 @@ const instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
 	stimulus: `<p>At each stage of the study, you will be asked to imagine having a certain <span style="color:blue"><b>emotional attitude</b></span> 
-		about some <i>made up things</i>.<br>For example, the following asks you to imagine having a certain attitude towards <i>zums</i>:</p>
+		about some <i>made up things</i>.<br>For example:</p>
 		<p style="color:blue">Say you feel that <b><i>zums</i> share some surprising properties of <i>gaxes</i></b></p>
 		<p>Which of the two following sentences (A or B) would you choose to say to express this attitude?</p>
 		<div style="width:900px; float: center">
@@ -144,14 +144,14 @@ const questionnaire = {
 			},
 			{
 				type: 'text',
-				prompt: 'Do you have any other comments?',
+				prompt: 'Please share any other comments or thoughts you have about the study (Did you enjoy it? Did you find it difficult?)',
 				name: 'comments',
 				textbox_columns: 30,
 				textbox_rows: 3
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the idea that someone wants to express might influence the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: "The goal of this study was to explore how the attitude that someone wants to express might influence the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
 			}
 		]
 	]
