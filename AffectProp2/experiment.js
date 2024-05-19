@@ -151,7 +151,7 @@ const questionnaire = {
 			},
 			{
 				type: 'html',
-				prompt: "The goal of this study was to explore how the attitude that someone wants to express might influence the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail."
+				prompt: "The goal of this study was to explore how the attitude that someone wants to express might influence the way they phrase a similarity statement. <br>If you have any questions, please contact Alon Fishman at alonfishm@gmail.com"
 			}
 		]
 	]
