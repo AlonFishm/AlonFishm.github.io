@@ -159,3 +159,10 @@ var repeat_conditional = {
 		}
 	}
 }; 
+
+// page refresh
+$(window).bind('beforeunload', function(e) {
+	// TODO: adjust the right sentence
+    return "Unloading this page may lose data. What do you want to do..."
+    e.preventDefault();
+});
