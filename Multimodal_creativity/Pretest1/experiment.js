@@ -38,7 +38,7 @@ var instructions = {
 	
 	stimulus: `<p>Im Folgenden werden Ihnen Bilder von Objekten präsentiert (manche werden Ihnen bekannt vorkommen, 
 	andere weniger).<br>Ihre Aufgabe ist es, diese Objekte mit einem Wort zu benennen, dass dieses Objekt möglichst genau beschreibt. 
-	Schreiben Sie Ihre Antwort in das Textfeld unter dem Objekt.</p><br>`,
+	<br>Schreiben Sie Ihre Antwort in das Textfeld unter dem Objekt.</p><br>`,
 	
     choices: ['Weiter']
 	
