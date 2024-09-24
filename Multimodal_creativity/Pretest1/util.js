@@ -11,7 +11,7 @@ let basic_shape_names = ["circle","square","equiTriangle","rectangle","ellipse",
 
 //randomly generate a rotation angle: 0, 45, 90 or 135
 function random_rotation() {
-	var alpha = Math.floor(Math.random() * 4) * 45;
+	var alpha = Math.floor(Math.random() * 4) * 0;
 	return alpha;
 }
 
