@@ -37,7 +37,7 @@ function create_basic_imgs() {
 		obj.data = {};
 		obj.data.name = basic_shape_names[i];
 		obj.data.type = "basic";
-		obj.data.type = "basicB";
+		obj.data.subtype = "basicB";
 		obj.data.rotation = rot;
 		basic_imgs_B.push(obj);
 	};
