@@ -23,7 +23,7 @@ function create_basic_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/B'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = basic_shape_names[i];
+		obj.data.shape = basic_shape_names[i];
 		obj.data.type = "basic";
 		obj.data.subtype = "basicA";
 		obj.data.rotation = rot;
@@ -35,7 +35,7 @@ function create_basic_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/B'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = basic_shape_names[i];
+		obj.data.shape = basic_shape_names[i];
 		obj.data.type = "basic";
 		obj.data.subtype = "basicB";
 		obj.data.rotation = rot;
@@ -51,7 +51,7 @@ function create_complex_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/C'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = "Comp"+i;
+		obj.data.shape = "Comp"+i;
 		obj.data.type = "complex";
 		obj.data.subtype = "complexA";
 		obj.data.rotation = rot;
@@ -63,7 +63,7 @@ function create_complex_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/C'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = "Comp"+i;
+		obj.data.shape = "Comp"+i;
 		obj.data.type = "complex";
 		obj.data.subtype = "complexB";
 		obj.data.rotation = rot;
@@ -97,7 +97,7 @@ function create_basic_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/B'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = basic_shape_names[i];
+		obj.data.shape = basic_shape_names[i];
 		obj.data.type = "basic";
 		obj.data.rotation = rot;
 		basic_imgs.push(obj);
@@ -112,7 +112,7 @@ function create_complex_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/C'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.name = "Comp"+i;
+		obj.data.shape = "Comp"+i;
 		obj.data.type = "complex";
 		obj.data.rotation = rot;
 		complex_imgs.push(obj);
