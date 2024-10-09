@@ -142,7 +142,7 @@ var repeat_message = { //a full slide for telling participants they got it wrong
 	choices: ['Zurück']
 }; 
 
-var specChars = /[ `!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/; //the characters we want to exclude (dash not included)
+var specChars = /[ 0123456789`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/; //the characters we want to exclude (dash not included)
 
 //using jsPsych's conditional_function to do 3 things: display the repeat_message slide, flip the repeat_loop switch, increment responses
 var repeat_conditional = {
