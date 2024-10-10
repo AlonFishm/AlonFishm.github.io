@@ -20,12 +20,7 @@ var irb = {
 	type: jsPsychHtmlButtonResponse,
 	
 	stimulus: `Liebe*r Teilnehmer*in, vielen Dank für Ihren Beitrag zu unserer Forschung.<br>Dieses Experiment sollte nicht länger 
-			als 10 Minuten dauern.<br><p style="font-size:80%;">Rechtliche Hinweise: Mit der Beantwortung der folgenden Fragen nehmen Sie an 
-			einer Forschungsstudie von Forschern der Fakultät für Linguistik und Literaturwissenschaft der Universität Bielefeld teil. Wenn 
-			Sie Fragen zu dieser Studie haben, wenden Sie sich bitte an Alon Fishman unter alon.fishman@uni-bielefeld.de. Sie müssen mindestens
-			18 Jahre alt sein, um teilnehmen zu können. Ihre Teilnahme an dieser Studie ist freiwillig und Sie können eine weitere Teilnahme 
-			jederzeit ablehnen. Ihre Anonymität ist gewährleistet; die Forscher, die Sie zur Teilnahme aufgefordert haben, erhalten keine 
-			personenbezogenen Daten über Sie.</p><br>`,
+			als 10 Minuten dauern.<br>`,
 	
     choices: ['Beginnen']
 	
