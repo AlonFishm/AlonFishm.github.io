@@ -17,13 +17,19 @@ var preload = {
 timeline.push(preload);
 
 var irb = {
-	type: jsPsychHtmlButtonResponse,
-	
-	stimulus: `Liebe*r Teilnehmer*in, vielen Dank für Ihren Beitrag zu unserer Forschung.<br>Dieses Experiment sollte nicht länger 
-			als 10 Minuten dauern.<br>`,
-	
-    choices: ['Beginnen']
-	
+  type: jsPsychSurveyMultiSelect,
+  preamble: `<p>Liebe*r Teilnehmer*in, vielen Dank für Ihren Beitrag zu unserer Forschung.<br>Dieses Experiment sollte nicht länger 
+			als 10 Minuten dauern.</p><p>Weitere Informationen zu dieser Forschung und Ihren Rechten als Teilnehmende finden Sie 
+			<a href="Information_für_Teilnehmende.pdf" target="_blank" rel="noopener noreferrer">hier</a>.</p>`,
+  questions: [
+    {
+      prompt: "", 
+      options: ["Ich willige in die Studienteilnahme und die damit verbundene Verarbeitung meiner personenbezogenen Daten ein."], 
+	  horizontal: true,
+      required: true,
+    }
+  ],
+  required_message: "Zur Teilnahme müssen Sie das Häkchen zur Bestätigung Ihrer Einwilligung setzen."
 };
 
 timeline.push(irb);

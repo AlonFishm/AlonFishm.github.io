@@ -9,8 +9,8 @@ function shuffle_array(arr) {
 let basic_shape_names = ["circle","square","equiTriangle","rectangle","ellipse","rightTriangle","star","cross","heart","arrow",
 					"ring","halfcircle","arch","crescent","slice","frame","trapez","diamond","el","chevron"];
 
-let complex_shape_names = ["circle+arrow", "diamond+heart", "rectangle+triangle", "square+ellipse", "rectangle-ellipse", "triangle+triangle",
-					"star-triangle","cross-star","heart-cross","arrow+circle","ginger","spikes","fries","dancer","ratchet","burger", "crash",
+let complex_shape_names = ["circle+arrow","diamond+heart","rectangle+triangle","square+ellipse","rectangle\ellipse","triangle+triangle",
+					"star\triangle","cross\star","heart\cross","arrow+circle","ginger","spikes","fries","dancer","ratchet","burger","crash",
 					"jellyfish","harp","bird"];
 
 //randomly generate a rotation angle: 0, 45, 90 or 135 (currently inactive)
@@ -28,6 +28,7 @@ function create_basic_imgs() {
 		obj.img = '<img src="img/B'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
 		obj.data.shape = basic_shape_names[i];
+		obj.data.shapeID = "B"+i;
 		obj.data.type = "basic";
 		obj.data.subtype = "basicA";
 		obj.data.rotation = rot;
@@ -40,6 +41,7 @@ function create_basic_imgs() {
 		obj.img = '<img src="img/B'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
 		obj.data.shape = basic_shape_names[i];
+		obj.data.shapeID = "B"+i;
 		obj.data.type = "basic";
 		obj.data.subtype = "basicB";
 		obj.data.rotation = rot;
@@ -55,7 +57,8 @@ function create_complex_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/C'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.shape = "Comp"+i;
+		obj.data.shape = complex_shape_names[i];
+		obj.data.shapeID = "C"+i;
 		obj.data.type = "complex";
 		obj.data.subtype = "complexA";
 		obj.data.rotation = rot;
@@ -67,7 +70,8 @@ function create_complex_imgs() {
 		rot = random_rotation();
 		obj.img = '<img src="img/C'+i+'.jpg" style="width:100px; rotate:'+rot+'deg"></img>';
 		obj.data = {};
-		obj.data.shape = "Comp"+i;
+		obj.data.shape = complex_shape_names[i];
+		obj.data.shapeID = "C"+i;
 		obj.data.type = "complex";
 		obj.data.subtype = "complexB";
 		obj.data.rotation = rot;
