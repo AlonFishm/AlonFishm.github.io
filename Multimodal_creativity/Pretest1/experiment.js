@@ -19,7 +19,7 @@ timeline.push(preload);
 var irb = {
   type: jsPsychSurveyMultiSelect,
   preamble: `<p>Liebe*r Teilnehmer*in, vielen Dank für Ihren Beitrag zu unserer Forschung.<br>Dieses Experiment sollte nicht länger 
-			als 10 Minuten dauern.</p><p>Weitere Informationen zu dieser Forschung und Ihren Rechten als Teilnehmende finden Sie 
+			als 10 Minuten dauern.</p><p>Weitere Informationen zu dieser Forschung und Ihren Rechten als Teilnehmer*in finden Sie 
 			<a href="Information_für_Teilnehmende.pdf" target="_blank" rel="noopener noreferrer">hier</a>.</p>`,
   questions: [
     {
@@ -29,7 +29,7 @@ var irb = {
       required: true,
     }
   ],
-  required_message: "Zur Teilnahme müssen Sie das Häkchen zur Bestätigung Ihrer Einwilligung setzen."
+  required_message: "Um teilzunehmen, müssen Sie das Häkchen zur Bestätigung Ihrer Einwilligung setzen."
 };
 
 timeline.push(irb);
@@ -38,7 +38,7 @@ var instructions = {
 	type: jsPsychHtmlButtonResponse,
 	
 	stimulus: `<p>Im Folgenden werden Ihnen Bilder von Objekten präsentiert (manche werden Ihnen bekannt vorkommen, 
-	andere weniger).<br>Ihre Aufgabe ist es, diese Objekte mit einem Wort zu benennen, dass dieses Objekt möglichst genau beschreibt. 
+	andere weniger).<br>Ihre Aufgabe ist es, jedes Objekt mit einem Wort zu benennen, das dieses Objekt möglichst genau beschreibt. 
 	<br>Schreiben Sie Ihre Antwort in das Textfeld unter dem Objekt.</p><br>`,
 	
     choices: ['Weiter']
